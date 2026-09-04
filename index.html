@@ -166,11 +166,23 @@
       text-align: center;
     }
 
-    /* Logo centered */
+    /* ===== LOGO WITH WHITE BACKGROUND ===== */
     .hero-logo {
       margin-bottom: 32px;
       display: flex;
       justify-content: center;
+    }
+    .hero-logo .logo-wrapper {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 12px 28px;
+      border-radius: 12px;
+      display: inline-block;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+      transition: var(--transition);
+    }
+    .hero-logo .logo-wrapper:hover {
+      transform: scale(1.02);
+      box-shadow: 0 6px 30px rgba(0, 0, 0, 0.3);
     }
     .hero-logo img {
       height: 80px;
@@ -303,6 +315,9 @@
         height: 42px;
         font-size: 1rem;
       }
+      .hero-logo .logo-wrapper {
+        padding: 10px 20px;
+      }
       .hero-logo img {
         height: 60px;
       }
@@ -318,6 +333,9 @@
     }
 
     @media (max-width: 480px) {
+      .hero-logo .logo-wrapper {
+        padding: 8px 16px;
+      }
       .hero-logo img {
         height: 50px;
       }
@@ -373,9 +391,11 @@
     <div class="hero-leaf"></div>
 
     <div class="hero-content">
-      <!-- Logo centered -->
+      <!-- Logo with white background -->
       <div class="hero-logo fade-in">
-        <img src="images/logo.png" alt="H2H Environmental Logo" onerror="this.style.display='none'" />
+        <div class="logo-wrapper">
+          <img src="images/logo.png" alt="H2H Environmental Logo" onerror="this.style.display='none'" />
+        </div>
       </div>
 
       <!-- Coming Soon - Big & Bold -->
@@ -398,10 +418,10 @@
     <a href="https://m.me/emceenvironmentalteam" target="_blank" class="fb-messenger" aria-label="Message us on Messenger">
       <i class="fab fa-facebook-messenger"></i>
     </a>
-    <a href="tel:0927227601" class="phone-call" aria-label="Call us">
+    <a href="tel:+63927227601" class="phone-call" aria-label="Call us">
       <i class="fas fa-phone"></i>
     </a>
-    <a href="viber://chat?number=09272227601" target="_blank" class="viber" aria-label="Chat on Viber">
+    <a href="viber://chat?number=%2B63927227601" target="_blank" class="viber" aria-label="Chat on Viber">
       <i class="fab fa-viber"></i>
     </a>
   </div>
