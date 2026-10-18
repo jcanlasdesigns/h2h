@@ -41,8 +41,6 @@
       color: var(--white);
       background: var(--dark-bg);
       line-height: 1.6;
-      overflow: hidden;
-      height: 100vh;
     }
     a {
       text-decoration: none;
@@ -113,7 +111,7 @@
     /* ===== HERO ===== */
     .hero {
       position: relative;
-      height: 100vh;
+      min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -218,6 +216,40 @@
       margin: 0 auto 0;
     }
 
+    /* ===== HERO CTA BUTTON (visible) ===== */
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 36px;
+      padding: 14px 32px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--white);
+      background: var(--primary-green);
+      border: 2px solid var(--secondary-green);
+      border-radius: 999px;
+      box-shadow: 0 8px 24px rgba(8, 120, 63, 0.4);
+      transition: var(--transition);
+    }
+    .hero-cta:hover {
+      background: var(--secondary-green);
+      border-color: var(--secondary-green);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(90, 174, 69, 0.5);
+      gap: 14px;
+    }
+    .hero-cta i {
+      font-size: 0.8rem;
+      animation: bounce 1.8s infinite;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(6px); }
+    }
+
     /* Decorative leaf */
     .hero-leaf {
       position: absolute;
@@ -243,15 +275,10 @@
       opacity: 0;
       animation: fadeUp 0.9s ease forwards;
     }
-    .delay-1 {
-      animation-delay: 0.2s;
-    }
-    .delay-2 {
-      animation-delay: 0.4s;
-    }
-    .delay-3 {
-      animation-delay: 0.6s;
-    }
+    .delay-1 { animation-delay: 0.2s; }
+    .delay-2 { animation-delay: 0.4s; }
+    .delay-3 { animation-delay: 0.6s; }
+    .delay-4 { animation-delay: 0.8s; }
 
     @keyframes fadeUp {
       0% {
@@ -264,11 +291,95 @@
       }
     }
 
+    /* ===== SERVICES SECTION ===== */
+    .services {
+      background: var(--light-bg);
+      color: var(--text-dark);
+      padding: 90px 0;
+    }
+    .services .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .section-header {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 56px;
+    }
+    .section-tag {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--primary-green);
+      background: var(--light-green);
+      padding: 6px 16px;
+      border-radius: 999px;
+      margin-bottom: 16px;
+    }
+    .section-header h2 {
+      font-size: clamp(1.6rem, 3.2vw, 2.4rem);
+      font-weight: 800;
+      color: var(--text-dark);
+      line-height: 1.25;
+      margin-bottom: 14px;
+    }
+    .section-header p {
+      font-size: 1.02rem;
+      color: var(--text-light);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .service-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: transform var(--transition), box-shadow var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+    }
+    .service-img {
+      width: 100%;
+      height: 170px;
+      object-fit: cover;
+      background: var(--light-green);
+    }
+    .service-content {
+      padding: 24px 22px 26px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .service-content h3 {
+      font-size: 1.12rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+    .service-content p {
+      font-size: 0.92rem;
+      color: var(--text-light);
+      flex: 1;
+    }
+
     /* ===== FLOATING SOCIAL / ACTION BUTTONS ===== */
     .floating-actions {
       position: fixed;
       right: 20px;
-      bottom: 100px;
+      bottom: 24px;
       z-index: 998;
       display: flex;
       flex-direction: column;
@@ -291,23 +402,32 @@
       transform: scale(1.08);
       box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
     }
-    .floating-actions .fb-messenger {
-      background: #0084ff;
-    }
-    .floating-actions .phone-call {
+    .floating-actions .fb-messenger { background: #0084ff; }
+    .floating-actions .phone-call { background: var(--primary-green); }
+    .floating-actions .phone-call i { transform: rotate(90deg); }
+    .floating-actions .viber { background: #7360f2; }
+
+    /* Back-to-top: now green, visible on white */
+    .floating-actions .back-to-top {
       background: var(--primary-green);
+      border: 2px solid var(--secondary-green);
+      font-size: 1.1rem;
     }
-    .floating-actions .phone-call i {
-      transform: rotate(90deg);
-    }
-    .floating-actions .viber {
-      background: #7360f2;
+    .floating-actions .back-to-top:hover {
+      background: var(--secondary-green);
+      border-color: var(--secondary-green);
     }
 
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 992px) {
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
     @media (max-width: 768px) {
       .floating-actions {
         right: 12px;
-        bottom: 80px;
+        bottom: 16px;
         gap: 10px;
       }
       .floating-actions a {
@@ -330,8 +450,18 @@
       .hero-content .hero-sub {
         font-size: 0.95rem;
       }
+      .services {
+        padding: 70px 0;
+      }
+      .section-header {
+        margin-bottom: 40px;
+      }
     }
-
+    @media (max-width: 560px) {
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+    }
     @media (max-width: 480px) {
       .hero-logo .logo-wrapper {
         padding: 8px 16px;
@@ -348,9 +478,13 @@
       .hero-content .hero-sub {
         font-size: 0.85rem;
       }
+      .hero-cta {
+        padding: 12px 24px;
+        font-size: 0.85rem;
+      }
       .floating-actions {
         right: 10px;
-        bottom: 70px;
+        bottom: 12px;
         gap: 8px;
       }
       .floating-actions a {
@@ -379,7 +513,7 @@
   </div>
 
   <!-- ===== HERO ===== -->
-  <section class="hero">
+  <section class="hero" id="top">
     <div class="hero-background">
       <video autoplay muted loop playsinline id="heroVideo">
         <source src="videos/hero-video-coming.mp4" type="video/mp4" />
@@ -388,7 +522,6 @@
       <img src="images/hero-bg-coming.png" alt="Hero background" style="display:none;" id="heroFallbackImg" />
     </div>
     <div class="hero-overlay"></div>
-   
 
     <div class="hero-content">
       <!-- Logo with white background -->
@@ -410,6 +543,53 @@
       <p class="hero-sub fade-in delay-3">
         Empowering progress and ensuring compliance with H2H Environmental Consulting Services.
       </p>
+
+      <!-- Visible CTA button -->
+      <a href="#services" class="hero-cta fade-in delay-4">
+        <span>Our Services</span>
+        <i class="fas fa-chevron-down"></i>
+      </a>
+    </div>
+  </section>
+
+  <!-- ===== SERVICES CARDS with Images ===== -->
+  <section id="services" class="services">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">OUR SERVICES</span>
+        <h2>Environmental Compliance &amp; Sanitation Services</h2>
+        <p>We help businesses comply, operate responsibly, and build a cleaner, safer environment.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <img src="images/service-1.png" alt="Environmental Permits" class="service-img" onerror="this.style.display='none'" />
+          <div class="service-content">
+            <h3>Environmental Permits</h3>
+            <p>ECC, CNC, PAMB, NIPAS, PTO, Discharge Permits, LLDA, PEZA, PhilGheps, DSHUD, PRA accreditation.</p>
+          </div>
+        </div>
+        <div class="service-card">
+          <img src="images/service-2.png" alt="Sewage & Wastewater" class="service-img" onerror="this.style.display='none'" />
+          <div class="service-content">
+            <h3>Sewage &amp; Wastewater</h3>
+            <p>STP design &amp; build, wastewater treatment facility (DENR EMB &amp; LLDA compliant), after-sales consultancy.</p>
+          </div>
+        </div>
+        <div class="service-card">
+          <img src="images/service-3.png" alt="Hazardous Waste Management" class="service-img" onerror="this.style.display='none'" />
+          <div class="service-content">
+            <h3>Hazardous Waste Management</h3>
+            <p>Hauling of grease wastes, medical wastes, contaminated materials, empty containers. NOV compliance support.</p>
+          </div>
+        </div>
+        <div class="service-card">
+          <img src="images/service-4.png" alt="Sanitation & Plumbing" class="service-img" onerror="this.style.display='none'" />
+          <div class="service-content">
+            <h3>Sanitation &amp; Plumbing</h3>
+            <p>Portalets rentals, siphoning, manual cleaning, plumbing works (repiping &amp; de-clogging) with DENR permits.</p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -423,6 +603,9 @@
     </a>
     <a href="viber://chat?number=%2B63927227601" target="_blank" class="viber" aria-label="Chat on Viber">
       <i class="fab fa-viber"></i>
+    </a>
+    <a href="#top" class="back-to-top" aria-label="Back to top">
+      <i class="fas fa-chevron-up"></i>
     </a>
   </div>
 
