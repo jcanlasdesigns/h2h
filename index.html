@@ -1,640 +1,5840 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>H2H Environmental Consulting - Coming Soon</title>
-  <!-- Google Fonts (Inter) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet" />
-  <!-- Font Awesome 6 (Free) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>H2H Environmental Management & Consultancy Services</title>
+
+  <meta
+    name="description"
+    content="H2H Environmental Management and Consultancy Services provides environmental compliance, permits, wastewater management, hazardous waste management, sanitation and plumbing services."
+  >
+
+  <!-- =========================================================
+       GOOGLE FONTS
+  ========================================================== -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- =========================================================
+       FONT AWESOME
+  ========================================================== -->
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  >
+
+
   <style>
-    /* ===== CSS VARIABLES ===== */
+
+    /* =========================================================
+       H2H ENVIRONMENTAL
+       CUSTOM CORPORATE / EDITORIAL DESIGN
+    ========================================================= */
+
     :root {
-      --primary-green: #08783f;
-      --secondary-green: #5aae45;
-      --light-green: #dcefd8;
-      --dark-bg: #050b14;
+
+      --green: #08783f;
+      --green-dark: #075b31;
+      --green-soft: #dcebdc;
+      --green-light: #eef5ee;
+
+      --ink: #102019;
+      --muted: #68736d;
+
+      --cream: #f5f4ee;
+      --paper: #fbfbf8;
       --white: #ffffff;
-      --light-bg: #f6f8f6;
-      --text-dark: #18221c;
-      --text-light: #66706a;
-      --shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
-      --radius: 12px;
-      --transition: 0.3s ease;
-      --font: 'Inter', sans-serif;
+
+      --dark: #09120f;
+      --dark-2: #0d1915;
+
+      --line: rgba(16, 32, 25, 0.12);
+      --line-light: rgba(255,255,255,.11);
+
+      --serif: "Manrope", sans-serif;
+      --sans: "DM Sans", sans-serif;
+
+      --ease: cubic-bezier(.2,.8,.2,1);
+
+      --container: 1320px;
+
+      --shadow:
+        0 18px 60px rgba(12, 31, 22, .08);
+
     }
 
-    /* ===== RESET & BASE ===== */
+
+    /* =========================================================
+       RESET
+    ========================================================= */
+
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
     }
+
     html {
       scroll-behavior: smooth;
+      scroll-padding-top: 100px;
     }
+
     body {
-      font-family: var(--font);
-      color: var(--white);
-      background: var(--dark-bg);
-      line-height: 1.6;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.7;
+      overflow-x: hidden;
     }
-    a {
-      text-decoration: none;
-      color: inherit;
+
+    body.menu-open {
+      overflow: hidden;
     }
-    ul {
-      list-style: none;
-    }
+
     img {
       max-width: 100%;
       display: block;
     }
 
-    /* ===== TOP BAR ===== */
-    .top-bar {
-      background: rgba(5, 11, 20, 0.8);
-      color: rgba(255, 255, 255, 0.8);
-      padding: 6px 0;
-      font-size: 0.82rem;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-      position: relative;
-      z-index: 10;
+    a {
+      color: inherit;
+      text-decoration: none;
     }
-    .top-bar .container {
-      max-width: 1200px;
+
+    button {
+      font-family: inherit;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    ::selection {
+      background: var(--green);
+      color: white;
+    }
+
+    .container {
+      width: min(
+        var(--container),
+        calc(100% - 64px)
+      );
+
       margin: 0 auto;
-      padding: 0 24px;
+    }
+
+
+    /* =========================================================
+       HEADER
+    ========================================================= */
+
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 5000;
+      transition: .35s var(--ease);
+    }
+
+    .topbar {
+      height: 40px;
+      background: #07100d;
+      color: rgba(255,255,255,.68);
+      font-size: 12px;
+      letter-spacing: .02em;
+    }
+
+    .topbar-inner {
+      height: 100%;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      flex-wrap: wrap;
-      gap: 6px 16px;
     }
-    .top-bar .contact-info {
+
+    .topbar-left {
       display: flex;
-      flex-wrap: wrap;
-      gap: 12px 20px;
       align-items: center;
+      gap: 25px;
     }
-    .top-bar .contact-info span {
-      display: inline-flex;
+
+    .topbar-item {
+      display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 8px;
+      white-space: nowrap;
     }
-    .top-bar .contact-info i {
-      color: var(--secondary-green);
-      font-size: 0.8rem;
-      width: 14px;
+
+    .topbar-item i {
+      color: #72a879;
+      font-size: 11px;
     }
-    .top-bar .social-icons {
+
+    .topbar-right {
       display: flex;
       gap: 10px;
-    }
-    .top-bar .social-icons a {
-      color: rgba(255, 255, 255, 0.6);
-      transition: var(--transition);
-    }
-    .top-bar .social-icons a:hover {
-      color: var(--secondary-green);
+      align-items: center;
     }
 
-    @media (max-width: 768px) {
-      .top-bar {
-        display: none;
-      }
-    }
-
-    /* ===== HERO ===== */
-    .hero {
-      position: relative;
-      min-height: 100vh;
+    .topbar-right a {
+      width: 30px;
+      height: 30px;
       display: flex;
       align-items: center;
       justify-content: center;
-      overflow: hidden;
-      background: var(--dark-bg);
+
+      color: rgba(255,255,255,.6);
+
+      border: 1px solid rgba(255,255,255,.08);
+
+      transition: .25s ease;
     }
 
-    .hero-background {
+    .topbar-right a:hover {
+      color: white;
+      background: rgba(255,255,255,.08);
+      border-color: rgba(255,255,255,.18);
+    }
+
+
+    /* =========================================================
+       NAVBAR
+    ========================================================= */
+
+    .navbar {
+      height: 84px;
+
+      background: rgba(251,251,248,.96);
+
+      border-bottom: 1px solid rgba(16,32,25,.08);
+
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+
+      transition:
+        height .35s var(--ease),
+        box-shadow .35s ease,
+        background .35s ease;
+    }
+
+    .header.scrolled .navbar {
+      height: 74px;
+
+      background: rgba(251,251,248,.985);
+
+      box-shadow:
+        0 10px 40px rgba(0,0,0,.06);
+    }
+
+    .nav-inner {
+      height: 100%;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+
+      flex-shrink: 0;
+
+      position: relative;
+      z-index: 5100;
+    }
+
+    .logo img {
+      width: auto;
+      height: 50px;
+    }
+
+
+    /* =========================================================
+       DESKTOP NAV
+    ========================================================= */
+
+    .nav-main {
+      display: flex;
+      align-items: center;
+      gap: 42px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 34px;
+    }
+
+    .nav-links a {
+      position: relative;
+
+      font-size: 14px;
+      font-weight: 600;
+
+      color: #35413b;
+
+      padding: 8px 0;
+
+      transition:
+        color .25s ease;
+    }
+
+    .nav-links a::after {
+      content: "";
+
       position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-      object-fit: cover;
+      left: 0;
+      bottom: 0;
+
+      width: 0;
+      height: 2px;
+
+      background: var(--green);
+
+      transition:
+        width .3s var(--ease);
     }
-    .hero-background video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--green);
     }
-    .hero-background img {
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
     }
-    .hero-background .fallback-img {
+
+    .header-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      gap: 10px;
+
+      background: var(--green);
+      color: white;
+
+      padding: 13px 23px;
+
+      font-size: 12px;
+      font-weight: 700;
+
+      letter-spacing: .05em;
+      text-transform: uppercase;
+
+      transition:
+        .3s var(--ease);
+    }
+
+    .header-button:hover {
+      background: var(--green-dark);
+
+      transform: translateY(-2px);
+
+      box-shadow:
+        0 12px 28px rgba(8,120,63,.2);
+    }
+
+
+    /* =========================================================
+       MOBILE MENU BUTTON
+    ========================================================= */
+
+    .menu-toggle {
+      display: none;
+
+      width: 46px;
+      height: 46px;
+
+      border: 1px solid var(--line);
+
+      background: var(--paper);
+
+      cursor: pointer;
+
+      align-items: center;
+      justify-content: center;
+
+      flex-direction: column;
+
+      gap: 6px;
+
+      position: relative;
+
+      z-index: 5200;
+    }
+
+    .menu-toggle span {
+      display: block;
+
+      width: 21px;
+      height: 2px;
+
+      background: var(--ink);
+
+      transition:
+        transform .3s ease,
+        opacity .2s ease;
+    }
+
+    .menu-toggle.active span:first-child {
+      transform:
+        translateY(4px)
+        rotate(45deg);
+    }
+
+    .menu-toggle.active span:last-child {
+      transform:
+        translateY(-4px)
+        rotate(-45deg);
+    }
+
+
+    /* =========================================================
+       MOBILE NAVIGATION
+       
+       IMPORTANT:
+       This has a HIGHER z-index than the hero.
+       The hero image can no longer cover it.
+    ========================================================= */
+
+    .mobile-menu-overlay {
       display: none;
     }
-    .hero video:not(:loaded) ~ .fallback-img {
-      display: block;
+
+
+    /* =========================================================
+       HERO
+    ========================================================= */
+
+    .hero {
+      min-height: 100svh;
+
+      position: relative;
+
+      display: flex;
+      align-items: flex-end;
+
+      overflow: hidden;
+
+      background: #08120e;
+
+      isolation: isolate;
+    }
+
+    .hero-image {
+      position: absolute;
+      inset: 0;
+
+      z-index: -3;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+
+      animation:
+        heroScale 12s ease-out forwards;
+    }
+
+    @keyframes heroScale {
+
+      from {
+        transform: scale(1.05);
+      }
+
+      to {
+        transform: scale(1);
+      }
+
     }
 
     .hero-overlay {
       position: absolute;
       inset: 0;
+
+      z-index: -2;
+
       background:
-        radial-gradient(circle at 20% 30%, rgba(8, 120, 63, 0.3) 0%, transparent 5%),
-        radial-gradient(circle at 80% 70%, rgba(90, 174, 69, 0.12) 0%, transparent 5%),
-        linear-gradient(135deg, rgba(5, 11, 20, 0.85) 0%, rgba(5, 11, 20, 0.6) 5%);
-      z-index: 1;
+
+        linear-gradient(
+          90deg,
+          rgba(5,15,11,.90) 0%,
+          rgba(5,15,11,.70) 42%,
+          rgba(5,15,11,.25) 76%,
+          rgba(5,15,11,.36) 100%
+        ),
+
+        linear-gradient(
+          0deg,
+          rgba(5,15,11,.82) 0%,
+          transparent 52%
+        );
     }
 
     .hero-content {
       position: relative;
       z-index: 2;
+
       width: 100%;
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 40px 24px;
-      text-align: center;
+
+      padding-top: 190px;
+      padding-bottom: 125px;
     }
 
-    /* ===== LOGO WITH WHITE BACKGROUND ===== */
-    .hero-logo {
-      margin-bottom: 32px;
+    .hero-copy {
+      width: min(900px, 100%);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+
+      align-items: center;
+
+      gap: 13px;
+
+      color: #9ecba2;
+
+      font-size: 12px;
+      font-weight: 700;
+
+      letter-spacing: .18em;
+
+      text-transform: uppercase;
+
+      margin-bottom: 28px;
+    }
+
+    .eyebrow::before {
+      content: "";
+
+      width: 42px;
+      height: 1px;
+
+      background: #76a97b;
+    }
+
+    .hero h1 {
+      color: white;
+
+      font-family: var(--serif);
+
+      font-size:
+        clamp(56px, 7vw, 100px);
+
+      line-height: .97;
+
+      letter-spacing: -.055em;
+
+      font-weight: 700;
+
+      max-width: 900px;
+
+      margin-bottom: 30px;
+    }
+
+    .hero h1 span {
+      color: #8fbc94;
+    }
+
+    .hero-description {
+      max-width: 640px;
+
+      color: rgba(255,255,255,.76);
+
+      font-size: 17px;
+
+      line-height: 1.85;
+
+      margin-bottom: 40px;
+    }
+
+    .hero-actions {
       display: flex;
+
+      gap: 13px;
+
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      min-height: 55px;
+
+      padding: 0 27px;
+
+      display: inline-flex;
+
+      align-items: center;
       justify-content: center;
+
+      gap: 12px;
+
+      border: 1px solid transparent;
+
+      font-size: 12px;
+
+      font-weight: 700;
+
+      letter-spacing: .08em;
+
+      text-transform: uppercase;
+
+      transition:
+        .3s var(--ease);
     }
-    .hero-logo .logo-wrapper {
-      background: rgba(255, 255, 255, 0.95);
-      padding: 12px 28px;
-      border-radius: 12px;
-      display: inline-block;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-      transition: var(--transition);
+
+    .btn-primary {
+      background: var(--green);
+      color: white;
     }
-    .hero-logo .logo-wrapper:hover {
-      transform: scale(1.02);
-      box-shadow: 0 6px 30px rgba(0, 0, 0, 0.3);
+
+    .btn-primary:hover {
+      background: #096c39;
+
+      transform: translateY(-2px);
+
+      box-shadow:
+        0 14px 35px rgba(8,120,63,.25);
     }
-    .hero-logo img {
-      height: 80px;
-      width: auto;
+
+    .btn-light {
+      color: white;
+
+      border-color:
+        rgba(255,255,255,.38);
+
+      background:
+        rgba(255,255,255,.04);
+    }
+
+    .btn-light:hover {
+      background: white;
+
+      border-color: white;
+
+      color: var(--green);
+
+      transform: translateY(-2px);
+    }
+
+    .hero-meta {
+      position: absolute;
+
+      right: 32px;
+      bottom: 40px;
+
+      z-index: 3;
+
+      color:
+        rgba(255,255,255,.48);
+
+      font-size: 10px;
+
+      letter-spacing: .16em;
+
+      text-transform: uppercase;
+
+      writing-mode: vertical-rl;
+
+      transform: rotate(180deg);
+    }
+
+    .scroll-indicator {
+      position: absolute;
+
+      bottom: 35px;
+      left: 50%;
+
+      z-index: 3;
+
+      transform: translateX(-50%);
+
+      color:
+        rgba(255,255,255,.5);
+
+      font-size: 9px;
+
+      font-weight: 700;
+
+      letter-spacing: .18em;
+
+      text-transform: uppercase;
+    }
+
+    .scroll-indicator::after {
+      content: "";
+
+      display: block;
+
+      width: 1px;
+      height: 38px;
+
+      margin: 8px auto 0;
+
+      background:
+        rgba(255,255,255,.35);
+    }
+
+
+    /* =========================================================
+       INTRODUCTION
+    ========================================================= */
+
+    .statement {
+      padding: 130px 0 120px;
+
+      background:
+        var(--paper);
+    }
+
+    .statement-grid {
+      display: grid;
+
+      grid-template-columns:
+        .75fr 1.8fr;
+
+      gap: 90px;
+
+      align-items: start;
+    }
+
+    .section-label {
+      color: var(--green);
+
+      font-size: 11px;
+
+      font-weight: 800;
+
+      letter-spacing: .2em;
+
+      text-transform: uppercase;
+    }
+
+    .statement-text {
+      max-width: 850px;
+    }
+
+    .statement-text h2 {
+      font-family: var(--serif);
+
+      font-size:
+        clamp(38px, 5vw, 64px);
+
+      line-height: 1.06;
+
+      letter-spacing: -.045em;
+
+      font-weight: 700;
+
+      margin-bottom: 32px;
+    }
+
+    .statement-text h2 span {
+      color: var(--green);
+    }
+
+    .statement-text p {
+      color: var(--muted);
+
+      font-size: 17px;
+
+      max-width: 760px;
+
+      line-height: 1.9;
+    }
+
+    .statement-line {
+      width: 75px;
+
+      height: 3px;
+
+      background: var(--green);
+
+      margin-top: 40px;
+    }
+
+
+    /* =========================================================
+       ABOUT
+    ========================================================= */
+
+    .about {
+      background: #ebece5;
+
+      padding: 0;
+    }
+
+    .about-grid {
+      display: grid;
+
+      grid-template-columns:
+        1fr 1fr;
+
+      min-height: 720px;
+    }
+
+    .about-image {
+      position: relative;
+
+      min-height: 680px;
+
+      overflow: hidden;
+    }
+
+    .about-image img,
+    .about-image video {
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
       display: block;
     }
 
-    /* Coming Soon - Big & Bold */
-    .hero-content .coming-soon {
-      font-size: clamp(4rem, 12vw, 8rem);
-      font-weight: 900;
-      letter-spacing: 2px;
-      color: var(--white);
-      line-height: 1.1;
-      margin-bottom: 12px;
-      text-shadow: 0 4px 40px rgba(8, 120, 63, 0.2);
-    }
-    .hero-content .coming-soon .highlight {
-      color: var(--secondary-green);
-    }
+    .about-image::after {
+      content: "";
 
-    .hero-content .hero-tagline {
-      font-size: 1.3rem;
-      color: rgba(255, 255, 255, 0.8);
-      max-width: 600px;
-      margin: 0 auto 8px;
-    }
-
-    .hero-content .hero-sub {
-      font-size: 1.05rem;
-      color: rgba(255, 255, 255, 0.5);
-      max-width: 500px;
-      margin: 0 auto 0;
-    }
-
-    /* ===== HERO CTA BUTTON (visible) ===== */
-    .hero-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      margin-top: 36px;
-      padding: 14px 32px;
-      font-size: 0.95rem;
-      font-weight: 600;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      color: var(--white);
-      background: var(--primary-green);
-      border: 2px solid var(--secondary-green);
-      border-radius: 999px;
-      box-shadow: 0 8px 24px rgba(8, 120, 63, 0.4);
-      transition: var(--transition);
-    }
-    .hero-cta:hover {
-      background: var(--secondary-green);
-      border-color: var(--secondary-green);
-      transform: translateY(-3px);
-      box-shadow: 0 12px 30px rgba(90, 174, 69, 0.5);
-      gap: 14px;
-    }
-    .hero-cta i {
-      font-size: 0.8rem;
-      animation: bounce 1.8s infinite;
-    }
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(6px); }
-    }
-
-    /* Decorative leaf */
-    .hero-leaf {
       position: absolute;
-      right: 5%;
-      bottom: 10%;
-      width: 200px;
-      height: 200px;
-      background: radial-gradient(circle at 30% 40%, rgba(90, 174, 69, 0.1), transparent 70%);
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 1;
+
+      inset: 0;
+
+      background:
+        linear-gradient(
+          90deg,
+          rgba(0,0,0,.08),
+          rgba(0,0,0,0)
+        );
     }
-    .hero-leaf::after {
-      content: "🌿";
-      font-size: 6rem;
-      opacity: 0.12;
+
+    .about-image-caption {
       position: absolute;
-      bottom: 0;
-      right: 0;
-    }
 
-    .fade-in {
-      opacity: 0;
-      animation: fadeUp 0.9s ease forwards;
-    }
-    .delay-1 { animation-delay: 0.2s; }
-    .delay-2 { animation-delay: 0.4s; }
-    .delay-3 { animation-delay: 0.6s; }
-    .delay-4 { animation-delay: 0.8s; }
+      bottom: 35px;
+      left: 35px;
 
-    @keyframes fadeUp {
-      0% {
-        opacity: 0;
-        transform: translateY(24px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
+      z-index: 2;
 
-    /* ===== SERVICES SECTION ===== */
-    .services {
-      background: var(--light-bg);
-      color: var(--text-dark);
-      padding: 90px 0;
-    }
-    .services .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-    .section-header {
-      text-align: center;
-      max-width: 720px;
-      margin: 0 auto 56px;
-    }
-    .section-tag {
-      display: inline-block;
-      font-size: 0.78rem;
+      color: white;
+
+      font-size: 10px;
+
       font-weight: 700;
-      letter-spacing: 3px;
+
+      letter-spacing: .18em;
+
       text-transform: uppercase;
-      color: var(--primary-green);
-      background: var(--light-green);
-      padding: 6px 16px;
-      border-radius: 999px;
-      margin-bottom: 16px;
     }
-    .section-header h2 {
-      font-size: clamp(1.6rem, 3.2vw, 2.4rem);
-      font-weight: 800;
-      color: var(--text-dark);
-      line-height: 1.25;
+
+    .about-content {
+      display: flex;
+
+      flex-direction: column;
+
+      justify-content: center;
+
+      padding:
+        100px
+        clamp(45px, 7vw, 115px);
+    }
+
+    .about-content h2 {
+      font-family: var(--serif);
+
+      font-size:
+        clamp(38px, 4vw, 57px);
+
+      line-height: 1.06;
+
+      letter-spacing: -.045em;
+
+      margin: 18px 0 30px;
+    }
+
+    .about-content p {
+      color: var(--muted);
+
+      font-size: 16px;
+
+      line-height: 1.95;
+
+      max-width: 600px;
+
       margin-bottom: 14px;
     }
-    .section-header p {
-      font-size: 1.02rem;
-      color: var(--text-light);
+
+    .about-content strong {
+      color: var(--ink);
     }
 
-    .services-grid {
+    .text-link {
+      display: inline-flex;
+
+      align-items: center;
+
+      gap: 14px;
+
+      color: var(--green);
+
+      font-size: 11px;
+
+      font-weight: 800;
+
+      letter-spacing: .12em;
+
+      text-transform: uppercase;
+
+      margin-top: 30px;
+    }
+
+    .text-link span {
+      width: 32px;
+
+      height: 1px;
+
+      background: var(--green);
+
+      transition:
+        width .3s ease;
+    }
+
+    .text-link:hover span {
+      width: 55px;
+    }
+
+
+    /* =========================================================
+       VISION / MISSION
+    ========================================================= */
+
+    .principles {
+      background: var(--paper);
+
+      padding: 130px 0;
+    }
+
+    .section-intro {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 24px;
+
+      grid-template-columns:
+        .7fr 1.3fr;
+
+      gap: 70px;
+
+      margin-bottom: 70px;
     }
 
-    .service-card {
-      background: var(--white);
-      border-radius: var(--radius);
-      overflow: hidden;
-      box-shadow: var(--shadow);
-      transition: transform var(--transition), box-shadow var(--transition);
-      display: flex;
-      flex-direction: column;
-    }
-    .service-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
-    }
-    .service-img {
-      width: 100%;
-      height: 170px;
-      object-fit: cover;
-      background: var(--light-green);
-    }
-    .service-content {
-      padding: 24px 22px 26px;
-      display: flex;
-      flex-direction: column;
-      flex: 1;
-    }
-    .service-content h3 {
-      font-size: 1.12rem;
-      font-weight: 700;
-      color: var(--text-dark);
-      margin-bottom: 10px;
-      line-height: 1.3;
-    }
-    .service-content p {
-      font-size: 0.92rem;
-      color: var(--text-light);
-      flex: 1;
+    .section-intro h2 {
+      font-family: var(--serif);
+
+      font-size:
+        clamp(40px, 5vw, 64px);
+
+      line-height: 1;
+
+      letter-spacing: -.05em;
     }
 
-    /* ===== FLOATING SOCIAL / ACTION BUTTONS ===== */
-    .floating-actions {
-      position: fixed;
-      right: 20px;
-      bottom: 24px;
-      z-index: 998;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
+    .principle-grid {
+      display: grid;
+
+      grid-template-columns: 1fr 1fr;
+
+      border-top:
+        1px solid var(--line);
     }
-    .floating-actions a {
+
+    .principle {
+      padding: 50px 55px 45px 0;
+
+      border-bottom:
+        1px solid var(--line);
+    }
+
+    .principle + .principle {
+      padding-left: 55px;
+
+      border-left:
+        1px solid var(--line);
+    }
+
+    .principle-number {
+      font-size: 11px;
+
+      font-weight: 800;
+
+      color: var(--green);
+
+      letter-spacing: .15em;
+
+      margin-bottom: 25px;
+    }
+
+    .principle h3 {
+      font-family: var(--serif);
+
+      font-size: 30px;
+
+      line-height: 1.25;
+
+      margin-bottom: 18px;
+
+      letter-spacing: -.03em;
+    }
+
+    .principle p {
+      color: var(--muted);
+
+      max-width: 600px;
+
+      line-height: 1.9;
+
+      font-size: 15px;
+    }
+
+
+    /* =========================================================
+       SERVICES
+    ========================================================= */
+
+    .services {
+      background: var(--dark);
+
+      color: white;
+
+      padding: 130px 0;
+    }
+
+    .services .section-label {
+      color: #87b48c;
+    }
+
+    .services-heading {
+      display: grid;
+
+      grid-template-columns: 1fr 1fr;
+
+      gap: 60px;
+
+      align-items: end;
+
+      margin-bottom: 70px;
+    }
+
+    .services-heading h2 {
+      font-family: var(--serif);
+
+      font-size:
+        clamp(42px, 5vw, 70px);
+
+      line-height: .98;
+
+      letter-spacing: -.05em;
+    }
+
+    .services-heading p {
+      color:
+        rgba(255,255,255,.58);
+
+      font-size: 16px;
+
+      max-width: 550px;
+
+      line-height: 1.9;
+    }
+
+    .service-list {
+      border-top:
+        1px solid rgba(255,255,255,.15);
+    }
+
+    .service {
+      display: grid;
+
+      grid-template-columns:
+        80px
+        1fr
+        1.1fr
+        70px;
+
+      gap: 30px;
+
+      align-items: center;
+
+      padding: 36px 0;
+
+      border-bottom:
+        1px solid rgba(255,255,255,.12);
+
+      transition:
+        .3s var(--ease);
+    }
+
+    .service:hover {
+      padding-left: 15px;
+      padding-right: 15px;
+
+      background:
+        rgba(255,255,255,.025);
+    }
+
+    .service-number {
+      color: #629b69;
+
+      font-size: 12px;
+
+      font-weight: 800;
+
+      letter-spacing: .14em;
+    }
+
+    .service h3 {
+      font-family: var(--serif);
+
+      font-size: 28px;
+
+      line-height: 1.2;
+
+      letter-spacing: -.025em;
+    }
+
+    .service p {
+      color:
+        rgba(255,255,255,.53);
+
+      font-size: 14px;
+
+      line-height: 1.8;
+    }
+
+    .service-arrow {
+      width: 44px;
+      height: 44px;
+
+      border:
+        1px solid rgba(255,255,255,.2);
+
       display: flex;
+
       align-items: center;
       justify-content: center;
-      width: 52px;
-      height: 52px;
-      border-radius: 50%;
-      color: var(--white);
-      font-size: 1.4rem;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
-      transition: var(--transition);
-      text-decoration: none;
-    }
-    .floating-actions a:hover {
-      transform: scale(1.08);
-      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
-    }
-    .floating-actions .fb-messenger { background: #0084ff; }
-    .floating-actions .phone-call { background: var(--primary-green); }
-    .floating-actions .phone-call i { transform: rotate(90deg); }
-    .floating-actions .viber { background: #7360f2; }
 
-    /* Back-to-top: now green, visible on white */
-    .floating-actions .back-to-top {
-      background: var(--primary-green);
-      border: 2px solid var(--secondary-green);
-      font-size: 1.1rem;
-    }
-    .floating-actions .back-to-top:hover {
-      background: var(--secondary-green);
-      border-color: var(--secondary-green);
+      color: #8ab88e;
+
+      transition:
+        .3s ease;
     }
 
-    /* ===== RESPONSIVE ===== */
-    @media (max-width: 992px) {
-      .services-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
+    .service:hover .service-arrow {
+      background: var(--green);
+
+      border-color: var(--green);
+
+      color: white;
+
+      transform: rotate(-45deg);
     }
-    @media (max-width: 768px) {
-      .floating-actions {
-        right: 12px;
-        bottom: 16px;
-        gap: 10px;
-      }
-      .floating-actions a {
-        width: 42px;
-        height: 42px;
-        font-size: 1rem;
-      }
-      .hero-logo .logo-wrapper {
-        padding: 10px 20px;
-      }
-      .hero-logo img {
-        height: 60px;
-      }
-      .hero-content .coming-soon {
-        font-size: 3.5rem;
-      }
-      .hero-content .hero-tagline {
-        font-size: 1.1rem;
-      }
-      .hero-content .hero-sub {
-        font-size: 0.95rem;
-      }
-      .services {
-        padding: 70px 0;
-      }
-      .section-header {
-        margin-bottom: 40px;
-      }
+
+
+    /* =========================================================
+       OFFER STRIP
+    ========================================================= */
+
+    .offer-strip {
+      background: var(--dark);
+
+      padding:
+        0 0 130px;
     }
-    @media (max-width: 560px) {
-      .services-grid {
+
+    .image-strip {
+      display: grid;
+
+      grid-template-columns:
+        1.4fr .8fr .8fr 1.1fr;
+
+      height: 440px;
+    }
+
+    .strip-image {
+      position: relative;
+
+      overflow: hidden;
+    }
+
+    .strip-image img {
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+
+      transition:
+        transform .7s var(--ease);
+    }
+
+    .strip-image:hover img {
+      transform: scale(1.045);
+    }
+
+    .strip-image::after {
+      content: "";
+
+      position: absolute;
+
+      inset: 0;
+
+      background:
+        linear-gradient(
+          transparent 55%,
+          rgba(0,0,0,.5)
+        );
+
+      pointer-events: none;
+    }
+
+
+    /* =========================================================
+       WHY H2H
+    ========================================================= */
+
+    .why {
+      background: #e9ece5;
+
+      padding: 130px 0;
+    }
+
+    .why-header {
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: flex-end;
+
+      gap: 60px;
+
+      margin-bottom: 70px;
+    }
+
+    .why-header h2 {
+      font-family: var(--serif);
+
+      font-size:
+        clamp(42px, 5vw, 64px);
+
+      letter-spacing: -.05em;
+
+      line-height: 1;
+
+      margin-top: 16px;
+    }
+
+    .why-header p {
+      max-width: 450px;
+
+      color: var(--muted);
+
+      font-size: 15px;
+
+      line-height: 1.8;
+    }
+
+    .why-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(5, 1fr);
+
+      border-top:
+        1px solid rgba(16,32,25,.16);
+
+      border-bottom:
+        1px solid rgba(16,32,25,.16);
+    }
+
+    .why-item {
+      padding:
+        40px 25px 42px 0;
+
+      min-height: 285px;
+    }
+
+    .why-item + .why-item {
+      border-left:
+        1px solid rgba(16,32,25,.16);
+
+      padding-left: 25px;
+    }
+
+    .why-number {
+      color: var(--green);
+
+      font-size: 10px;
+
+      font-weight: 800;
+
+      letter-spacing: .15em;
+
+      margin-bottom: 60px;
+    }
+
+    .why-item h3 {
+      font-family: var(--serif);
+
+      font-size: 21px;
+
+      line-height: 1.2;
+
+      margin-bottom: 13px;
+    }
+
+    .why-item p {
+      color: var(--muted);
+
+      font-size: 13px;
+
+      line-height: 1.8;
+    }
+
+
+    /* =========================================================
+       ACCREDITATIONS
+    ========================================================= */
+
+    .accreditations {
+      background: var(--dark);
+
+      color: white;
+
+      padding: 100px 0;
+
+      overflow: hidden;
+    }
+
+    .accreditation-heading {
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: center;
+
+      margin-bottom: 50px;
+    }
+
+    .accreditation-heading h2 {
+      font-family: var(--serif);
+
+      font-size: 40px;
+
+      letter-spacing: -.04em;
+    }
+
+    .accreditation-heading span {
+      color: #80aa84;
+
+      font-size: 10px;
+
+      font-weight: 800;
+
+      letter-spacing: .16em;
+
+      text-transform: uppercase;
+    }
+
+    .marquee {
+      overflow: hidden;
+
+      width: 100%;
+
+      mask-image:
+        linear-gradient(
+          90deg,
+          transparent,
+          black 10%,
+          black 90%,
+          transparent
+        );
+
+      -webkit-mask-image:
+        linear-gradient(
+          90deg,
+          transparent,
+          black 10%,
+          black 90%,
+          transparent
+        );
+    }
+
+    .marquee-track {
+      display: flex;
+
+      width: max-content;
+
+      animation:
+        marquee 35s linear infinite;
+    }
+
+    .marquee-track:hover {
+      animation-play-state: paused;
+    }
+
+    .accreditation-logo {
+      width: 160px;
+
+      height: 90px;
+
+      margin: 0 30px;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      opacity: .65;
+
+      filter: grayscale(1);
+
+      transition: .3s ease;
+    }
+
+    .accreditation-logo:hover {
+      opacity: 1;
+
+      filter: grayscale(0);
+    }
+
+    .accreditation-logo img {
+      max-width: 100%;
+      max-height: 78px;
+
+      object-fit: contain;
+    }
+
+    @keyframes marquee {
+
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-50%);
+      }
+
+    }
+
+
+    /* =========================================================
+       GALLERY
+    ========================================================= */
+
+    .gallery {
+      background: var(--paper);
+
+      padding: 130px 0;
+    }
+
+    .gallery-heading {
+      display: grid;
+
+      grid-template-columns:
+        .7fr 1.3fr;
+
+      gap: 70px;
+
+      align-items: end;
+
+      margin-bottom: 60px;
+    }
+
+    .gallery-heading h2 {
+      font-family: var(--serif);
+
+      font-size:
+        clamp(42px, 5vw, 66px);
+
+      line-height: 1;
+
+      letter-spacing: -.05em;
+    }
+
+    .gallery-heading p {
+      color: var(--muted);
+
+      max-width: 520px;
+
+      font-size: 15px;
+
+      line-height: 1.8;
+    }
+
+    .gallery-grid {
+      display: grid;
+
+      grid-template-columns:
+        1.4fr .8fr .8fr;
+
+      grid-auto-rows: 260px;
+
+      gap: 8px;
+    }
+
+    .gallery-item {
+      position: relative;
+
+      overflow: hidden;
+
+      cursor: pointer;
+
+      background: #ddd;
+    }
+
+    .gallery-item:nth-child(1) {
+      grid-row: span 2;
+    }
+
+    .gallery-item:nth-child(4) {
+      grid-column: span 2;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+
+      transition:
+        transform .7s var(--ease);
+    }
+
+    .gallery-item::after {
+      content: "";
+
+      position: absolute;
+
+      inset: 0;
+
+      background:
+        rgba(8,120,63,0);
+
+      transition:
+        background .4s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+
+    .gallery-item:hover::after {
+      background:
+        rgba(8,120,63,.08);
+    }
+
+
+    /* =========================================================
+       TEAM
+    ========================================================= */
+
+    .team {
+      background: #e9ece5;
+
+      padding: 130px 0;
+    }
+
+    .team-header {
+      display: grid;
+
+      grid-template-columns:
+        .7fr 1.3fr;
+
+      gap: 70px;
+
+      margin-bottom: 65px;
+    }
+
+    .team-header h2 {
+      font-family: var(--serif);
+
+      font-size:
+        clamp(42px, 5vw, 64px);
+
+      line-height: 1;
+
+      letter-spacing: -.05em;
+    }
+
+    .team-header p {
+      max-width: 560px;
+
+      color: var(--muted);
+
+      font-size: 15px;
+
+      line-height: 1.8;
+    }
+
+    .team-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(4, 1fr);
+
+      gap: 8px;
+    }
+
+    .team-card {
+      background: var(--paper);
+
+      padding:
+        35px 25px 30px;
+
+      min-height: 370px;
+
+      display: flex;
+
+      flex-direction: column;
+
+      justify-content: flex-end;
+
+      position: relative;
+
+      overflow: hidden;
+
+      transition:
+        .35s var(--ease);
+    }
+
+    .team-card:hover {
+      transform: translateY(-5px);
+
+      box-shadow: var(--shadow);
+    }
+
+    .team-photo {
+      position: absolute;
+
+      inset: 0;
+
+      height: 100%;
+
+      opacity: .9;
+    }
+
+    .team-photo img {
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+
+      object-position: center top;
+
+      filter: grayscale(.15);
+
+      transition:
+        transform .6s ease;
+    }
+
+    .team-card:hover .team-photo img {
+      transform: scale(1.03);
+    }
+
+    .team-overlay {
+      position: absolute;
+
+      inset: 0;
+
+      background:
+        linear-gradient(
+          0deg,
+          rgba(5,14,10,.92) 0%,
+          rgba(5,14,10,.45) 45%,
+          transparent 75%
+        );
+    }
+
+    .team-info {
+      position: relative;
+
+      z-index: 2;
+
+      color: white;
+    }
+
+    .team-info h3 {
+      font-family: var(--serif);
+
+      font-size: 18px;
+
+      line-height: 1.2;
+
+      margin-bottom: 6px;
+    }
+
+    .team-info p {
+      color: #9fc3a2;
+
+      font-size: 10px;
+
+      font-weight: 700;
+
+      letter-spacing: .08em;
+
+      text-transform: uppercase;
+    }
+
+
+    /* =========================================================
+       COVERAGE
+    ========================================================= */
+
+    .coverage {
+      background: var(--paper);
+
+      padding: 120px 0;
+    }
+
+    .coverage-layout {
+      display: grid;
+
+      grid-template-columns:
+        .7fr 1.3fr;
+
+      gap: 80px;
+    }
+
+    .coverage-heading h2 {
+      font-family: var(--serif);
+
+      font-size:
+        clamp(40px, 5vw, 55px);
+
+      line-height: 1;
+
+      letter-spacing: -.05em;
+
+      margin-top: 16px;
+    }
+
+    .coverage-heading p {
+      color: var(--muted);
+
+      margin-top: 25px;
+
+      font-size: 15px;
+    }
+
+    .coverage-list {
+      border-top:
+        1px solid var(--line);
+    }
+
+    .coverage-row {
+      display: grid;
+
+      grid-template-columns:
+        1fr 1fr;
+
+      gap: 30px;
+
+      padding: 30px 0;
+
+      border-bottom:
+        1px solid var(--line);
+    }
+
+    .coverage-row h3 {
+      font-family: var(--serif);
+
+      font-size: 23px;
+    }
+
+    .coverage-row p {
+      color: var(--muted);
+
+      font-size: 14px;
+
+      line-height: 1.7;
+    }
+
+    .coverage-row strong {
+      color: var(--green);
+    }
+
+
+    /* =========================================================
+       CTA
+    ========================================================= */
+
+    .cta {
+      position: relative;
+
+      min-height: 620px;
+
+      display: flex;
+
+      align-items: center;
+
+      overflow: hidden;
+
+      background: var(--dark);
+    }
+
+    .cta-bg {
+      position: absolute;
+
+      inset: 0;
+    }
+
+    .cta-bg img {
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+
+      opacity: .42;
+    }
+
+    .cta-overlay {
+      position: absolute;
+
+      inset: 0;
+
+      background:
+        linear-gradient(
+          90deg,
+          rgba(5,15,11,.94) 0%,
+          rgba(5,15,11,.73) 58%,
+          rgba(5,15,11,.55) 100%
+        );
+    }
+
+    .cta-content {
+      position: relative;
+
+      z-index: 2;
+
+      width: min(850px, 100%);
+    }
+
+    .cta-content .section-label {
+      color: #8eb893;
+    }
+
+    .cta-content h2 {
+      color: white;
+
+      font-family: var(--serif);
+
+      font-size:
+        clamp(44px, 6vw, 80px);
+
+      line-height: .97;
+
+      letter-spacing: -.055em;
+
+      margin: 18px 0 28px;
+    }
+
+    .cta-content p {
+      color:
+        rgba(255,255,255,.62);
+
+      max-width: 600px;
+
+      font-size: 16px;
+
+      line-height: 1.8;
+
+      margin-bottom: 35px;
+    }
+
+
+    /* =========================================================
+       CONTACT
+    ========================================================= */
+
+    .contact {
+      background: var(--paper);
+
+      padding: 130px 0;
+    }
+
+    .contact-heading {
+      max-width: 800px;
+
+      margin-bottom: 70px;
+    }
+
+    .contact-heading h2 {
+      font-family: var(--serif);
+
+      font-size:
+        clamp(44px, 6vw, 78px);
+
+      line-height: .95;
+
+      letter-spacing: -.055em;
+
+      margin: 17px 0 27px;
+    }
+
+    .contact-heading p {
+      color: var(--muted);
+
+      max-width: 600px;
+
+      font-size: 15px;
+
+      line-height: 1.8;
+    }
+
+    .contact-grid {
+      display: grid;
+
+      grid-template-columns:
+        1fr 1fr;
+
+      gap: 0;
+
+      border-top:
+        1px solid var(--line);
+    }
+
+    .contact-details {
+      padding:
+        45px 60px 45px 0;
+    }
+
+    .contact-map {
+      min-height: 520px;
+
+      border-left:
+        1px solid var(--line);
+    }
+
+    .contact-map iframe {
+      width: 100%;
+      height: 100%;
+
+      min-height: 520px;
+
+      border: 0;
+
+      display: block;
+
+      filter: grayscale(.15);
+    }
+
+    .contact-item {
+      display: grid;
+
+      grid-template-columns:
+        35px 1fr;
+
+      gap: 15px;
+
+      padding: 25px 0;
+
+      border-bottom:
+        1px solid var(--line);
+    }
+
+    .contact-item i {
+      color: var(--green);
+
+      padding-top: 5px;
+
+      font-size: 15px;
+    }
+
+    .contact-item h4 {
+      font-size: 10px;
+
+      font-weight: 800;
+
+      letter-spacing: .15em;
+
+      text-transform: uppercase;
+
+      margin-bottom: 6px;
+    }
+
+    .contact-item p,
+    .contact-item a {
+      color: var(--muted);
+
+      font-size: 14px;
+
+      line-height: 1.8;
+    }
+
+    .contact-item a:hover {
+      color: var(--green);
+    }
+
+
+    /* =========================================================
+       FOOTER
+    ========================================================= */
+
+    footer {
+      background: #07100d;
+
+      color:
+        rgba(255,255,255,.55);
+    }
+
+    .footer-main {
+      padding: 80px 0 70px;
+
+      display: grid;
+
+      grid-template-columns:
+        1.3fr .7fr 1fr;
+
+      gap: 80px;
+    }
+
+    .footer-brand img {
+      height: 48px;
+
+      width: auto;
+
+      margin-bottom: 22px;
+
+      filter:
+        brightness(0)
+        invert(1);
+
+      opacity: .92;
+    }
+
+    .footer-brand p {
+      max-width: 350px;
+
+      font-size: 14px;
+
+      line-height: 1.9;
+    }
+
+    .footer-title {
+      color: white;
+
+      font-size: 10px;
+
+      font-weight: 800;
+
+      letter-spacing: .18em;
+
+      text-transform: uppercase;
+
+      margin-bottom: 24px;
+    }
+
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+
+    .footer-links a {
+      font-size: 13px;
+
+      transition:
+        .2s ease;
+    }
+
+    .footer-links a:hover {
+      color: #87b38b;
+    }
+
+    .footer-contact p {
+      font-size: 13px;
+
+      margin-bottom: 10px;
+
+      line-height: 1.7;
+    }
+
+    .footer-contact i {
+      width: 20px;
+
+      color: #78a77d;
+    }
+
+
+    /* =========================================================
+       FOOTER SOCIAL
+    ========================================================= */
+
+    .footer-social {
+      display: flex;
+
+      gap: 10px;
+
+      margin-top: 28px;
+    }
+
+    .footer-social a {
+      width: 40px;
+      height: 40px;
+
+      border:
+        1px solid rgba(255,255,255,.14);
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      font-size: 13px;
+
+      transition:
+        .25s ease;
+    }
+
+    .footer-social a:hover {
+      background: var(--green);
+
+      border-color: var(--green);
+
+      color: white;
+
+      transform: translateY(-2px);
+    }
+
+    .footer-social .viber:hover {
+      background: #665cac;
+
+      border-color: #665cac;
+    }
+
+
+    /* =========================================================
+       FOOTER BOTTOM
+    ========================================================= */
+
+    .footer-bottom {
+      border-top:
+        1px solid rgba(255,255,255,.09);
+
+      padding: 22px 0;
+    }
+
+    .footer-bottom-inner {
+      display: flex;
+
+      justify-content: space-between;
+
+      gap: 20px;
+
+      color:
+        rgba(255,255,255,.3);
+
+      font-size: 10px;
+
+      letter-spacing: .04em;
+    }
+
+
+    /* =========================================================
+       FLOATING CONTACT BUTTONS
+    ========================================================= */
+
+    .floating {
+      position: fixed;
+
+      right: 22px;
+      bottom: 25px;
+
+      z-index: 4900;
+
+      display: flex;
+
+      flex-direction: column;
+
+      gap: 9px;
+    }
+
+    .floating a {
+      width: 48px;
+      height: 48px;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      color: white;
+
+      background: var(--green);
+
+      box-shadow:
+        0 10px 30px rgba(0,0,0,.18);
+
+      transition:
+        .25s ease;
+    }
+
+    .floating a:hover {
+      transform: translateY(-3px);
+
+      background: var(--green-dark);
+    }
+
+    .floating .messenger {
+      background: #168aff;
+    }
+
+    .floating .messenger:hover {
+      background: #0877df;
+    }
+
+    .floating .facebook {
+      background: #1877f2;
+    }
+
+    .floating .facebook:hover {
+      background: #0d65d8;
+    }
+
+    .floating .viber {
+      background: #665cac;
+    }
+
+    .floating .viber:hover {
+      background: #554da0;
+    }
+
+
+    /* =========================================================
+       SCROLL TOP
+    ========================================================= */
+
+    .scroll-top {
+      position: fixed;
+
+      left: 22px;
+      bottom: 25px;
+
+      width: 46px;
+      height: 46px;
+
+      border: 0;
+
+      background: var(--ink);
+
+      color: white;
+
+      cursor: pointer;
+
+      opacity: 0;
+
+      visibility: hidden;
+
+      transform: translateY(10px);
+
+      transition:
+        .3s ease;
+
+      z-index: 4900;
+    }
+
+    .scroll-top.show {
+      opacity: 1;
+
+      visibility: visible;
+
+      transform: translateY(0);
+    }
+
+    .scroll-top:hover {
+      background: var(--green);
+    }
+
+
+    /* =========================================================
+       LIGHTBOX
+    ========================================================= */
+
+    .lightbox {
+      position: fixed;
+
+      inset: 0;
+
+      z-index: 10000;
+
+      background:
+        rgba(3,8,6,.95);
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      padding: 40px;
+
+      opacity: 0;
+
+      visibility: hidden;
+
+      transition:
+        .3s ease;
+    }
+
+    .lightbox.active {
+      opacity: 1;
+
+      visibility: visible;
+    }
+
+    .lightbox-image {
+      max-width: 90vw;
+
+      max-height: 85vh;
+
+      object-fit: contain;
+    }
+
+    .lightbox-close,
+    .lightbox-prev,
+    .lightbox-next {
+      position: absolute;
+
+      border: 0;
+
+      background: transparent;
+
+      color:
+        rgba(255,255,255,.7);
+
+      cursor: pointer;
+
+      transition:
+        .2s ease;
+    }
+
+    .lightbox-close {
+      top: 25px;
+
+      right: 30px;
+
+      font-size: 34px;
+    }
+
+    .lightbox-prev,
+    .lightbox-next {
+      top: 50%;
+
+      transform:
+        translateY(-50%);
+
+      font-size: 25px;
+
+      padding: 20px;
+    }
+
+    .lightbox-prev {
+      left: 15px;
+    }
+
+    .lightbox-next {
+      right: 15px;
+    }
+
+    .lightbox-close:hover,
+    .lightbox-prev:hover,
+    .lightbox-next:hover {
+      color: white;
+    }
+
+    .lightbox-counter {
+      position: absolute;
+
+      bottom: 25px;
+
+      left: 50%;
+
+      transform:
+        translateX(-50%);
+
+      color:
+        rgba(255,255,255,.45);
+
+      font-size: 11px;
+
+      letter-spacing: .1em;
+    }
+
+
+    /* =========================================================
+       REVEAL
+    ========================================================= */
+
+    .reveal {
+      opacity: 0;
+
+      transform:
+        translateY(35px);
+
+      transition:
+        opacity .8s var(--ease),
+        transform .8s var(--ease);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+
+      transform:
+        translateY(0);
+    }
+
+
+    /* =========================================================
+       LARGE TABLET
+    ========================================================= */
+
+    @media (max-width: 1100px) {
+
+      .nav-main {
+        gap: 22px;
+      }
+
+      .nav-links {
+        gap: 22px;
+      }
+
+      .statement-grid,
+      .section-intro,
+      .gallery-heading,
+      .team-header,
+      .coverage-layout {
+        gap: 50px;
+      }
+
+      .why-grid {
+        grid-template-columns:
+          repeat(3, 1fr);
+      }
+
+      .why-item:nth-child(4) {
+        border-left: 0;
+
+        padding-left: 0;
+      }
+
+      .why-item:nth-child(5) {
+        border-left:
+          1px solid rgba(16,32,25,.16);
+      }
+
+      .team-grid {
+        grid-template-columns:
+          repeat(2, 1fr);
+      }
+
+      .footer-main {
+        gap: 50px;
+      }
+
+    }
+
+
+    /* =========================================================
+       TABLET / MOBILE NAV
+    ========================================================= */
+
+    @media (max-width: 850px) {
+
+      .container {
+        width:
+          min(
+            calc(100% - 40px),
+            var(--container)
+          );
+      }
+
+
+      /* TOP BAR */
+
+      .topbar {
+        display: none;
+      }
+
+
+      /* NAV */
+
+      .navbar {
+        height: 76px;
+
+        position: relative;
+
+        z-index: 5100;
+      }
+
+      .header.scrolled .navbar {
+        height: 70px;
+      }
+
+      .logo img {
+        height: 43px;
+      }
+
+      .nav-main {
+        display: none;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+
+
+      /*
+        FIX FOR THE ORIGINAL PROBLEM:
+
+        The mobile menu is positioned relative
+        to the viewport and has a z-index higher
+        than the hero section.
+      */
+
+      .nav-main.mobile-open {
+
+        position: fixed;
+
+        top: 76px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+
+        display: flex;
+
+        width: 100%;
+
+        min-height:
+          calc(100svh - 76px);
+
+        background:
+          rgba(251,251,248,.99);
+
+        color: var(--ink);
+
+        padding:
+          28px 25px 45px;
+
+        flex-direction: column;
+
+        justify-content: flex-start;
+
+        align-items: stretch;
+
+        gap: 25px;
+
+        overflow-y: auto;
+
+        z-index: 5050;
+
+        box-shadow:
+          0 20px 50px rgba(0,0,0,.12);
+
+        border-top:
+          1px solid rgba(16,32,25,.08);
+
+        backdrop-filter:
+          blur(18px);
+
+        -webkit-backdrop-filter:
+          blur(18px);
+
+      }
+
+      .header.scrolled .nav-main.mobile-open {
+        top: 70px;
+
+        min-height:
+          calc(100svh - 70px);
+      }
+
+      .nav-main.mobile-open .nav-links {
+
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 0;
+
+        width: 100%;
+
+      }
+
+      .nav-main.mobile-open .nav-links a {
+
+        display: flex;
+
+        align-items: center;
+
+        width: 100%;
+
+        min-height: 58px;
+
+        padding: 14px 0;
+
+        font-size: 17px;
+
+        font-weight: 600;
+
+        border-bottom:
+          1px solid var(--line);
+
+      }
+
+      .nav-main.mobile-open .nav-links a::after {
+        display: none;
+      }
+
+      .nav-main.mobile-open .nav-links a.active {
+        color: var(--green);
+      }
+
+      .nav-main.mobile-open .header-button {
+
+        justify-content: center;
+
+        width: 100%;
+
+        min-height: 52px;
+
+        margin-top: 5px;
+
+        font-size: 12px;
+
+      }
+
+
+      /* HERO */
+
+      .hero-content {
+        padding-top: 150px;
+
+        padding-bottom: 105px;
+      }
+
+      .hero h1 {
+        font-size:
+          clamp(48px, 10vw, 76px);
+      }
+
+      .hero-description {
+        font-size: 16px;
+      }
+
+
+      /* SECTIONS */
+
+      .statement {
+        padding: 90px 0;
+      }
+
+      .statement-grid,
+      .section-intro,
+      .gallery-heading,
+      .team-header,
+      .coverage-layout {
         grid-template-columns: 1fr;
       }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-image {
+        min-height: 520px;
+      }
+
+      .about-content {
+        padding:
+          85px 40px;
+      }
+
+      .principles,
+      .services,
+      .why,
+      .gallery,
+      .team,
+      .coverage,
+      .contact {
+        padding: 95px 0;
+      }
+
+      .services-heading {
+        grid-template-columns: 1fr;
+      }
+
+      .service {
+        grid-template-columns:
+          55px 1fr 50px;
+      }
+
+      .service p {
+        grid-column: 2 / 3;
+
+        grid-row: 2;
+      }
+
+      .service-arrow {
+        grid-column: 3;
+
+        grid-row: 1 / 3;
+      }
+
+      .image-strip {
+        height: 350px;
+      }
+
+      .why-header {
+        display: grid;
+
+        grid-template-columns: 1fr;
+      }
+
+      .why-grid {
+        grid-template-columns:
+          1fr 1fr;
+      }
+
+      .why-item:nth-child(n) {
+        border-left: 0;
+
+        padding-left: 0;
+      }
+
+      .why-item:nth-child(even) {
+        border-left:
+          1px solid rgba(16,32,25,.16);
+
+        padding-left: 25px;
+      }
+
+      .gallery-grid {
+        grid-template-columns:
+          1fr 1fr;
+
+        grid-auto-rows:
+          230px;
+      }
+
+      .gallery-item:nth-child(1) {
+        grid-row:
+          span 2;
+      }
+
+      .gallery-item:nth-child(4) {
+        grid-column:
+          span 2;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-details {
+        padding:
+          45px 0;
+      }
+
+      .contact-map {
+        border-left: 0;
+
+        border-top:
+          1px solid var(--line);
+      }
+
+      .contact-map iframe {
+        min-height: 430px;
+      }
+
+      .footer-main {
+        grid-template-columns:
+          1fr 1fr;
+      }
+
+      .footer-brand {
+        grid-column:
+          span 2;
+      }
+
     }
-    @media (max-width: 480px) {
-      .hero-logo .logo-wrapper {
-        padding: 8px 16px;
+
+
+    /* =========================================================
+       MOBILE
+    ========================================================= */
+
+    @media (max-width: 600px) {
+
+      .container {
+        width:
+          calc(100% - 34px);
       }
-      .hero-logo img {
-        height: 50px;
+
+
+      /* NAV */
+
+      .navbar {
+        height: 72px;
       }
-      .hero-content .coming-soon {
-        font-size: 2.8rem;
+
+      .header.scrolled .navbar {
+        height: 68px;
       }
-      .hero-content .hero-tagline {
-        font-size: 0.95rem;
+
+      .logo img {
+        height: 40px;
       }
-      .hero-content .hero-sub {
-        font-size: 0.85rem;
+
+      .menu-toggle {
+        width: 44px;
+        height: 44px;
       }
-      .hero-cta {
-        padding: 12px 24px;
-        font-size: 0.85rem;
+
+      .nav-main.mobile-open {
+        top: 72px;
+
+        min-height:
+          calc(100svh - 72px);
+
+        padding:
+          24px 22px 40px;
       }
-      .floating-actions {
-        right: 10px;
-        bottom: 12px;
+
+      .header.scrolled .nav-main.mobile-open {
+        top: 68px;
+
+        min-height:
+          calc(100svh - 68px);
+      }
+
+      .nav-main.mobile-open .nav-links a {
+        min-height: 56px;
+
+        font-size: 17px;
+      }
+
+
+      /* HERO */
+
+      .hero-content {
+        padding-top: 135px;
+
+        padding-bottom: 90px;
+      }
+
+      .hero h1 {
+        font-size: 44px;
+
+        line-height: 1;
+      }
+
+      .hero-description {
+        font-size: 14px;
+
+        line-height: 1.8;
+
+        max-width: 100%;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+
+        align-items: stretch;
+      }
+
+      .btn {
+        width: 100%;
+
+        min-height: 53px;
+      }
+
+      .hero-meta,
+      .scroll-indicator {
+        display: none;
+      }
+
+
+      /* INTRO */
+
+      .statement-grid {
+        gap: 30px;
+      }
+
+      .statement-text h2 {
+        font-size: 38px;
+      }
+
+      .statement-text p {
+        font-size: 15px;
+      }
+
+
+      /* ABOUT */
+
+      .about-image {
+        min-height: 390px;
+      }
+
+      .about-content {
+        padding:
+          65px 25px;
+      }
+
+      .about-content h2 {
+        font-size: 37px;
+      }
+
+      .about-content p {
+        font-size: 15px;
+      }
+
+
+      /* GENERAL SECTION SPACING */
+
+      .principles,
+      .services,
+      .why,
+      .gallery,
+      .team,
+      .coverage,
+      .contact {
+        padding:
+          75px 0;
+      }
+
+
+      /* PRINCIPLES */
+
+      .principle-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .principle,
+      .principle + .principle {
+        padding:
+          32px 0;
+
+        border-left: 0;
+      }
+
+      .principle h3 {
+        font-size: 25px;
+      }
+
+
+      /* SERVICES */
+
+      .services-heading h2 {
+        font-size: 43px;
+      }
+
+      .services-heading p {
+        font-size: 15px;
+      }
+
+      .service {
+        grid-template-columns:
+          38px 1fr 38px;
+
+        gap: 12px;
+
+        padding:
+          28px 0;
+      }
+
+      .service-number {
+        font-size: 11px;
+      }
+
+      .service h3 {
+        font-size: 21px;
+      }
+
+      .service p {
+        font-size: 13px;
+
+        line-height: 1.75;
+      }
+
+      .service-arrow {
+        width: 36px;
+        height: 36px;
+      }
+
+
+      /* IMAGE STRIP */
+
+      .image-strip {
+        height: auto;
+
+        grid-template-columns:
+          1fr 1fr;
+      }
+
+      .strip-image {
+        height: 185px;
+      }
+
+      .strip-image:first-child {
+        grid-column:
+          span 2;
+
+        height: 260px;
+      }
+
+
+      /* WHY */
+
+      .why-header h2 {
+        font-size: 42px;
+      }
+
+      .why-header p {
+        font-size: 14px;
+      }
+
+      .why-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .why-item,
+      .why-item:nth-child(even) {
+        border-left: 0;
+
+        border-bottom:
+          1px solid rgba(16,32,25,.16);
+
+        padding:
+          30px 0;
+
+        min-height:
+          auto;
+      }
+
+      .why-item:last-child {
+        border-bottom: 0;
+      }
+
+      .why-number {
+        margin-bottom: 28px;
+      }
+
+
+      /* ACCREDITATION */
+
+      .accreditation-heading {
+        display: block;
+      }
+
+      .accreditation-heading h2 {
+        font-size: 34px;
+
+        margin-bottom: 15px;
+      }
+
+      .accreditation-heading span {
+        display: block;
+      }
+
+
+      /* GALLERY */
+
+      .gallery-heading {
+        gap: 25px;
+      }
+
+      .gallery-heading h2 {
+        font-size: 45px;
+      }
+
+      .gallery-grid {
+        grid-template-columns:
+          1fr 1fr;
+
+        grid-auto-rows:
+          180px;
+
+        gap: 5px;
+      }
+
+
+      /* TEAM */
+
+      .team-header {
+        gap: 25px;
+      }
+
+      .team-header h2 {
+        font-size: 45px;
+      }
+
+      .team-grid {
+        grid-template-columns:
+          1fr 1fr;
+
+        gap: 5px;
+      }
+
+      .team-card {
+        min-height: 285px;
+
+        padding:
+          20px 15px;
+      }
+
+      .team-info h3 {
+        font-size: 15px;
+      }
+
+      .team-info p {
+        font-size: 8px;
+      }
+
+
+      /* COVERAGE */
+
+      .coverage-heading h2 {
+        font-size: 43px;
+      }
+
+      .coverage-row {
+        grid-template-columns: 1fr;
+
         gap: 8px;
       }
-      .floating-actions a {
-        width: 38px;
-        height: 38px;
-        font-size: 0.85rem;
+
+
+      /* CTA */
+
+      .cta {
+        min-height: 540px;
       }
+
+      .cta-content h2 {
+        font-size: 47px;
+      }
+
+      .cta-content p {
+        font-size: 14px;
+      }
+
+
+      /* CONTACT */
+
+      .contact-heading h2 {
+        font-size: 49px;
+      }
+
+      .contact-heading p {
+        font-size: 14px;
+      }
+
+      .contact-map iframe {
+        min-height: 390px;
+      }
+
+
+      /* FOOTER */
+
+      .footer-main {
+        grid-template-columns: 1fr;
+
+        gap: 38px;
+
+        padding:
+          65px 0 55px;
+      }
+
+      .footer-brand {
+        grid-column: auto;
+      }
+
+      .footer-bottom-inner {
+        flex-direction: column;
+
+        line-height: 1.6;
+      }
+
+
+      /* FLOATING BUTTONS */
+
+      .floating {
+        right: 15px;
+
+        bottom: 15px;
+
+        gap: 7px;
+      }
+
+      .floating a {
+        width: 43px;
+        height: 43px;
+
+        font-size: 13px;
+      }
+
+      .scroll-top {
+        left: 15px;
+
+        bottom: 15px;
+
+        width: 43px;
+        height: 43px;
+      }
+
+
+      /* LIGHTBOX */
+
+      .lightbox {
+        padding: 15px;
+      }
+
     }
+
   </style>
+
 </head>
+
+
 <body>
-  <!-- ===== TOP BAR ===== -->
-  <div class="top-bar">
-    <div class="container">
-      <div class="contact-info">
-        <span><i class="fas fa-phone"></i> Luzon: 0927 227 601</span>
-        <span><i class="fas fa-phone"></i> Davao/Mindanao: 0966 462 1574</span>
-        <span><i class="fas fa-envelope"></i> h2henvironservices@outlook.com</span>
-        <span><i class="fas fa-map-marker-alt"></i> Dasmariñas, Cavite</span>
+
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
+<header class="header" id="header">
+
+  <!-- TOP BAR -->
+
+  <div class="topbar">
+
+    <div class="container topbar-inner">
+
+      <div class="topbar-left">
+
+        <div class="topbar-item">
+          <i class="fas fa-phone"></i>
+          <span>Luzon: 0927 227 601</span>
+        </div>
+
+        <div class="topbar-item">
+          <i class="fas fa-phone"></i>
+          <span>Davao/Mindanao: 0966 462 1574</span>
+        </div>
+
+        <div class="topbar-item">
+          <i class="fas fa-envelope"></i>
+          <span>h2henvironservices@outlook.com</span>
+        </div>
+
+        <div class="topbar-item">
+          <i class="fas fa-location-dot"></i>
+          <span>Dasmariñas, Cavite</span>
+        </div>
+
       </div>
-      <div class="social-icons">
-        <a href="https://www.facebook.com/emceenvironmentalteam" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-        <a href="https://m.me/emceenvironmentalteam" target="_blank" aria-label="Messenger"><i class="fab fa-facebook-messenger"></i></a>
+
+
+      <!-- SOCIAL CONTACT -->
+
+      <div class="topbar-right">
+
+        <a
+          href="https://www.facebook.com/emceenvironmentalteam"
+          target="_blank"
+          aria-label="Facebook"
+        >
+          <i class="fab fa-facebook-f"></i>
+        </a>
+
+        <a
+          href="https://m.me/emceenvironmentalteam"
+          target="_blank"
+          aria-label="Messenger"
+        >
+          <i class="fab fa-facebook-messenger"></i>
+        </a>
+
+        <!-- VIBER -->
+        <a
+          href="viber://chat?number=%2B63927227601"
+          aria-label="Viber"
+          class="viber-link"
+        >
+          <i class="fab fa-viber"></i>
+        </a>
+
       </div>
+
     </div>
+
   </div>
 
-  <!-- ===== HERO ===== -->
-  <section class="hero" id="top">
-    <div class="hero-background">
-      <video autoplay muted loop playsinline id="heroVideo">
-        <source src="videos/hero-video-coming.mp4" type="video/mp4" />
-        <img src="images/hero-bg.png" alt="Hero background" class="fallback-img" />
-      </video>
-      <img src="images/hero-bg-coming.png" alt="Hero background" style="display:none;" id="heroFallbackImg" />
-    </div>
-    <div class="hero-overlay"></div>
 
-    <div class="hero-content">
-      <!-- Logo with white background -->
-      <div class="hero-logo fade-in">
-        <div class="logo-wrapper">
-          <img src="images/logo.png" alt="H2H Environmental Logo" onerror="this.style.display='none'" />
+  <!-- NAVBAR -->
+
+  <nav class="navbar">
+
+    <div class="container nav-inner">
+
+      <a
+        href="#hero"
+        class="logo"
+      >
+
+        <img
+          src="images/logo.png"
+          alt="H2H Environmental Management and Consultancy Services"
+        >
+
+      </a>
+
+
+      <!-- NAVIGATION -->
+
+      <div
+        class="nav-main"
+        id="navMain"
+      >
+
+        <div class="nav-links">
+
+          <a
+            href="#hero"
+            class="active"
+          >
+            Home
+          </a>
+
+          <a href="#about">
+            About Us
+          </a>
+
+          <a href="#services">
+            Services
+          </a>
+
+          <a href="#team">
+            Our Team
+          </a>
+
+          <a href="#contact">
+            Contact Us
+          </a>
+
         </div>
+
+
+        <a
+          href="#contact"
+          class="header-button"
+        >
+
+          Get in Touch
+
+          <i class="fas fa-arrow-right"></i>
+
+        </a>
+
       </div>
 
-      <!-- Coming Soon - Big & Bold -->
-      <h1 class="coming-soon fade-in delay-1">
-        Coming <span class="highlight">Soon</span>
+
+      <!-- HAMBURGER -->
+
+      <button
+        class="menu-toggle"
+        id="menuToggle"
+        aria-label="Open menu"
+        aria-expanded="false"
+      >
+
+        <span></span>
+        <span></span>
+
+      </button>
+
+    </div>
+
+  </nav>
+
+</header>
+
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section
+  class="hero"
+  id="hero"
+>
+
+  <div class="hero-image">
+
+    <img
+      src="images/hero-bg.png"
+      alt="Environmental management"
+    >
+
+  </div>
+
+
+  <div class="hero-overlay"></div>
+
+
+  <div class="container hero-content">
+
+    <div class="hero-copy">
+
+      <div class="eyebrow reveal">
+        H2H ENVIRONMENTAL MANAGEMENT
+      </div>
+
+
+      <h1 class="reveal">
+
+        Caring for the Earth,
+        <span>Securing the Future.</span>
+
       </h1>
 
-      <p class="hero-tagline fade-in delay-2">
-        Caring for the Earth, Securing the Future.
+
+      <p class="hero-description reveal">
+
+        Empowering progress and ensuring compliance through
+        professional environmental consulting, management,
+        sanitation and regulatory support.
+
       </p>
 
-      <p class="hero-sub fade-in delay-3">
-        Empowering progress and ensuring compliance with H2H Environmental Consulting Services.
-      </p>
 
-      <!-- Visible CTA button -->
-      <a href="#services" class="hero-cta fade-in delay-4">
-        <span>Our Services</span>
-        <i class="fas fa-chevron-down"></i>
-      </a>
-    </div>
-  </section>
+      <div class="hero-actions reveal">
 
-  <!-- ===== SERVICES CARDS with Images ===== -->
-  <section id="services" class="services">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">OUR SERVICES</span>
-        <h2>Environmental Compliance &amp; Sanitation Services</h2>
-        <p>We help businesses comply, operate responsibly, and build a cleaner, safer environment.</p>
+        <a
+          href="#services"
+          class="btn btn-primary"
+        >
+
+          Explore Our Services
+
+          <i class="fas fa-arrow-right"></i>
+
+        </a>
+
+
+        <a
+          href="#contact"
+          class="btn btn-light"
+        >
+
+          Contact Us
+
+        </a>
+
       </div>
-      <div class="services-grid">
-        <div class="service-card">
-          <img src="images/service-1.png" alt="Environmental Permits" class="service-img" onerror="this.style.display='none'" />
-          <div class="service-content">
-            <h3>Environmental Permits</h3>
-            <p>ECC, CNC, PAMB, NIPAS, PTO, Discharge Permits, LLDA, PEZA, PhilGheps, DSHUD, PRA accreditation.</p>
-          </div>
-        </div>
-        <div class="service-card">
-          <img src="images/service-2.png" alt="Sewage & Wastewater" class="service-img" onerror="this.style.display='none'" />
-          <div class="service-content">
-            <h3>Sewage &amp; Wastewater</h3>
-            <p>STP design &amp; build, wastewater treatment facility (DENR EMB &amp; LLDA compliant), after-sales consultancy.</p>
-          </div>
-        </div>
-        <div class="service-card">
-          <img src="images/service-3.png" alt="Hazardous Waste Management" class="service-img" onerror="this.style.display='none'" />
-          <div class="service-content">
-            <h3>Hazardous Waste Management</h3>
-            <p>Hauling of grease wastes, medical wastes, contaminated materials, empty containers. NOV compliance support.</p>
-          </div>
-        </div>
-        <div class="service-card">
-          <img src="images/service-4.png" alt="Sanitation & Plumbing" class="service-img" onerror="this.style.display='none'" />
-          <div class="service-content">
-            <h3>Sanitation &amp; Plumbing</h3>
-            <p>Portalets rentals, siphoning, manual cleaning, plumbing works (repiping &amp; de-clogging) with DENR permits.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- ===== FLOATING ACTION BUTTONS ===== -->
-  <div class="floating-actions">
-    <a href="https://m.me/emceenvironmentalteam" target="_blank" class="fb-messenger" aria-label="Message us on Messenger">
-      <i class="fab fa-facebook-messenger"></i>
-    </a>
-    <a href="tel:+63927227601" class="phone-call" aria-label="Call us">
-      <i class="fas fa-phone"></i>
-    </a>
-    <a href="viber://chat?number=%2B63927227601" target="_blank" class="viber" aria-label="Chat on Viber">
-      <i class="fab fa-viber"></i>
-    </a>
-    <a href="#top" class="back-to-top" aria-label="Back to top">
-      <i class="fas fa-chevron-up"></i>
-    </a>
+    </div>
+
   </div>
 
-  <script>
-    (function() {
-      "use strict";
 
-      // ===== HERO VIDEO FALLBACK =====
-      const video = document.getElementById('heroVideo');
-      const fallbackImg = document.getElementById('heroFallbackImg');
+  <div class="hero-meta">
+    Environmental Management & Consultancy
+  </div>
 
-      if (video) {
-        video.addEventListener('error', function() {
-          if (fallbackImg) {
-            fallbackImg.style.display = 'block';
-          }
-          video.style.display = 'none';
-        });
-        setTimeout(function() {
-          if (video.readyState === 0 || video.networkState === 3) {
-            if (fallbackImg) {
-              fallbackImg.style.display = 'block';
-            }
-            video.style.display = 'none';
-          }
-        }, 3000);
+
+  <div class="scroll-indicator">
+    Scroll to explore
+  </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     INTRODUCTION
+========================================================= -->
+
+<section class="statement">
+
+  <div class="container statement-grid">
+
+    <div>
+
+      <span class="section-label">
+        About H2H
+      </span>
+
+    </div>
+
+
+    <div class="statement-text reveal">
+
+      <h2>
+
+        Professional guidance for
+        <span>environmental responsibility.</span>
+
+      </h2>
+
+
+      <p>
+
+        H2H Environmental Management and Consultancy Services
+        provides comprehensive support to commercial, manufacturing
+        and industrial establishments of all sizes. Our primary focus
+        is assisting clients in achieving compliance with Environmental
+        Permits and other relevant government regulations.
+
+      </p>
+
+
+      <div class="statement-line"></div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     ABOUT
+========================================================= -->
+
+<section
+  class="about"
+  id="about"
+>
+
+  <div class="about-grid">
+
+    <div class="about-image reveal">
+
+      <video
+        src="videos/about-video.mp4"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="metadata"
+        aria-label="H2H Environmental Consulting"
+      ></video>
+
+      <div class="about-image-caption">
+        Environmental responsibility in practice
+      </div>
+
+    </div>
+
+
+    <div class="about-content reveal">
+
+      <span class="section-label">
+        Who We Are
+      </span>
+
+
+      <h2>
+        Practical environmental solutions for growing businesses.
+      </h2>
+
+
+      <p>
+
+        <strong>
+          H2H Environmental Management and Consultancy Services
+        </strong>
+
+        supports businesses navigating environmental requirements,
+        permits, compliance obligations and operational concerns.
+
+      </p>
+
+
+      <p>
+
+        Our approach combines technical knowledge, regulatory
+        awareness and practical field experience to help clients
+        manage environmental responsibilities with greater clarity
+        and confidence.
+
+      </p>
+
+
+      <a
+        href="#services"
+        class="text-link"
+      >
+
+        Explore our services
+
+        <span></span>
+
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     VISION / MISSION
+========================================================= -->
+
+<section
+  class="principles"
+  id="vision-mission"
+>
+
+  <div class="container">
+
+    <div class="section-intro reveal">
+
+      <div>
+
+        <span class="section-label">
+          Our Guiding Principles
+        </span>
+
+      </div>
+
+
+      <div>
+
+        <h2>
+          Vision & Mission
+        </h2>
+
+      </div>
+
+    </div>
+
+
+    <div class="principle-grid">
+
+      <article class="principle reveal">
+
+        <div class="principle-number">
+          01 / VISION
+        </div>
+
+
+        <h3>
+          Building relationships through dependable environmental guidance.
+        </h3>
+
+
+        <p>
+
+          Building strong, long-term relationships with clients by
+          understanding their unique needs and delivering tailored
+          solutions. Offer strategic guidance and support to help
+          clients achieve their environmental goals. Ensure
+          transparency, integrity and reliability in all client
+          interactions.
+
+        </p>
+
+      </article>
+
+
+      <article class="principle reveal">
+
+        <div class="principle-number">
+          02 / MISSION
+        </div>
+
+
+        <h3>
+          Helping organizations operate responsibly and sustainably.
+        </h3>
+
+
+        <p>
+
+          We are committed to helping clients minimize environmental
+          impacts, optimize resource use, and integrate eco-friendly
+          practices into their operations. Through scientific expertise,
+          innovative approaches, and collaborative partnerships, we aim
+          to protect natural resources, safeguard public health, and
+          contribute to a cleaner, greener future.
+
+        </p>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     SERVICES
+========================================================= -->
+
+<section
+  class="services"
+  id="services"
+>
+
+  <div class="container">
+
+    <div class="services-heading">
+
+      <div class="reveal">
+
+        <span class="section-label">
+          What We Do
+        </span>
+
+
+        <h2>
+          Environmental compliance & sanitation services.
+        </h2>
+
+      </div>
+
+
+      <div class="reveal">
+
+        <p>
+
+          We help businesses comply, operate responsibly and
+          maintain safer, more sustainable facilities through
+          technical and environmental support.
+
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div class="service-list">
+
+
+      <!-- SERVICE 01 -->
+
+      <article class="service reveal">
+
+        <div class="service-number">
+          01
+        </div>
+
+
+        <h3>
+          Environmental Permits
+        </h3>
+
+
+        <p>
+
+          ECC, CNC, PAMB, NIPAS, PTO, Discharge Permits,
+          LLDA, PEZA, PhilGheps, DSHUD, PRA accreditation.
+
+        </p>
+
+
+        <div class="service-arrow">
+
+          <i class="fas fa-arrow-right"></i>
+
+        </div>
+
+      </article>
+
+
+      <!-- SERVICE 02 -->
+
+      <article class="service reveal">
+
+        <div class="service-number">
+          02
+        </div>
+
+
+        <h3>
+          Sewage & Wastewater
+        </h3>
+
+
+        <p>
+
+          STP design & build, wastewater treatment facility
+          (DENR EMB & LLDA compliant), after-sales consultancy.
+
+        </p>
+
+
+        <div class="service-arrow">
+
+          <i class="fas fa-arrow-right"></i>
+
+        </div>
+
+      </article>
+
+
+      <!-- SERVICE 03 -->
+
+      <article class="service reveal">
+
+        <div class="service-number">
+          03
+        </div>
+
+
+        <h3>
+          Hazardous Waste Management
+        </h3>
+
+
+        <p>
+
+          Hauling of grease wastes, medical wastes,
+          contaminated materials and empty containers.
+          NOV compliance support.
+
+        </p>
+
+
+        <div class="service-arrow">
+
+          <i class="fas fa-arrow-right"></i>
+
+        </div>
+
+      </article>
+
+
+      <!-- SERVICE 04 -->
+
+      <article class="service reveal">
+
+        <div class="service-number">
+          04
+        </div>
+
+
+        <h3>
+          Sanitation & Plumbing
+        </h3>
+
+
+        <p>
+
+          Portalets rentals, siphoning, manual cleaning,
+          plumbing works, repiping and de-clogging with
+          DENR permits.
+
+        </p>
+
+
+        <div class="service-arrow">
+
+          <i class="fas fa-arrow-right"></i>
+
+        </div>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     OFFER IMAGE STRIP
+========================================================= -->
+
+<section class="offer-strip">
+
+  <div class="image-strip">
+
+    <div class="strip-image">
+
+      <img
+        src="images/offer-1.jpg"
+        alt="Environmental service"
+      >
+
+    </div>
+
+
+    <div class="strip-image">
+
+      <img
+        src="images/offer-2.jpg"
+        alt="Environmental service"
+      >
+
+    </div>
+
+
+    <div class="strip-image">
+
+      <img
+        src="images/offer-3.jpg"
+        alt="Environmental service"
+      >
+
+    </div>
+
+
+    <div class="strip-image">
+
+      <img
+        src="images/offer-4.jpg"
+        alt="Environmental service"
+      >
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     WHY H2H
+========================================================= -->
+
+<section
+  class="why"
+  id="why"
+>
+
+  <div class="container">
+
+    <div class="why-header reveal">
+
+      <div>
+
+        <span class="section-label">
+          Why H2H
+        </span>
+
+
+        <h2>
+
+          Built around expertise,
+          reliability and results.
+
+        </h2>
+
+      </div>
+
+
+      <p>
+
+        We combine professional expertise with a client-focused
+        approach to help organizations address environmental
+        requirements with practical solutions.
+
+      </p>
+
+    </div>
+
+
+    <div class="why-grid">
+
+
+      <article class="why-item reveal">
+
+        <div class="why-number">
+          01
+        </div>
+
+        <h3>
+          Proven Track Record
+        </h3>
+
+        <p>
+          Years of successful project completion and satisfied clients.
+        </p>
+
+      </article>
+
+
+      <article class="why-item reveal">
+
+        <div class="why-number">
+          02
+        </div>
+
+        <h3>
+          Innovative Solutions
+        </h3>
+
+        <p>
+          Use of the latest technologies and methods to achieve
+          optimal results.
+        </p>
+
+      </article>
+
+
+      <article class="why-item reveal">
+
+        <div class="why-number">
+          03
+        </div>
+
+        <h3>
+          Client-Centric Approach
+        </h3>
+
+        <p>
+          Personalized services focused on meeting the unique
+          needs of our clients.
+        </p>
+
+      </article>
+
+
+      <article class="why-item reveal">
+
+        <div class="why-number">
+          04
+        </div>
+
+        <h3>
+          Sustainability Focus
+        </h3>
+
+        <p>
+          Commitment to promoting and implementing
+          sustainable practices.
+        </p>
+
+      </article>
+
+
+      <article class="why-item reveal">
+
+        <div class="why-number">
+          05
+        </div>
+
+        <h3>
+          Regulatory Knowledge
+        </h3>
+
+        <p>
+          In-depth understanding of environmental laws
+          and regulations.
+        </p>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     ACCREDITATIONS
+========================================================= -->
+
+<section class="accreditations">
+
+  <div class="container">
+
+    <div class="accreditation-heading reveal">
+
+      <h2>
+        Trusted by industry leaders
+      </h2>
+
+      <span>
+        Partners & Accreditations
+      </span>
+
+    </div>
+
+  </div>
+
+
+  <div class="marquee">
+
+    <div class="marquee-track">
+
+
+      <div class="accreditation-logo">
+        <img src="images/acc-1.png" alt="Accreditation 1">
+      </div>
+
+      <div class="accreditation-logo">
+        <img src="images/acc-2.png" alt="Accreditation 2">
+      </div>
+
+      <div class="accreditation-logo">
+        <img src="images/acc-3.png" alt="Accreditation 3">
+      </div>
+
+      <div class="accreditation-logo">
+        <img src="images/acc-4.png" alt="Accreditation 4">
+      </div>
+
+      <div class="accreditation-logo">
+        <img src="images/acc-5.png" alt="Accreditation 5">
+      </div>
+
+      <div class="accreditation-logo">
+        <img src="images/acc-6.png" alt="Accreditation 6">
+      </div>
+
+      <div class="accreditation-logo">
+        <img src="images/acc-7.png" alt="Accreditation 7">
+      </div>
+
+
+
+      <!-- DUPLICATE FOR LOOP -->
+
+      <div class="accreditation-logo">
+        <img src="images/acc-1.png" alt="Accreditation 1">
+      </div>
+
+      <div class="accreditation-logo">
+        <img src="images/acc-2.png" alt="Accreditation 2">
+      </div>
+
+      <div class="accreditation-logo">
+        <img src="images/acc-3.png" alt="Accreditation 3">
+      </div>
+
+      <div class="accreditation-logo">
+        <img src="images/acc-4.png" alt="Accreditation 4">
+      </div>
+
+      <div class="accreditation-logo">
+        <img src="images/acc-5.png" alt="Accreditation 5">
+      </div>
+
+      <div class="accreditation-logo">
+        <img src="images/acc-6.png" alt="Accreditation 6">
+      </div>
+
+      <div class="accreditation-logo">
+        <img src="images/acc-7.png" alt="Accreditation 7">
+      </div>
+
+  
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     GALLERY
+========================================================= -->
+
+<section class="gallery">
+
+  <div class="container">
+
+    <div class="gallery-heading reveal">
+
+      <div>
+
+        <span class="section-label">
+          Field Work
+        </span>
+
+      </div>
+
+
+      <div>
+
+        <h2>
+          Our work<br>
+          in action.
+        </h2>
+
+
+        <p style="margin-top:25px;">
+
+          See our environmental consulting and sanitation
+          services in the field.
+
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div class="gallery-grid">
+
+
+      <div
+        class="gallery-item reveal"
+        data-gallery="gallery"
+      >
+
+        <img
+          src="images/gallery-1.jpg"
+          alt="H2H project"
+        >
+
+      </div>
+
+
+      <div
+        class="gallery-item reveal"
+        data-gallery="gallery"
+      >
+
+        <img
+          src="images/gallery-2.jpg"
+          alt="H2H project"
+        >
+
+      </div>
+
+
+      <div
+        class="gallery-item reveal"
+        data-gallery="gallery"
+      >
+
+        <img
+          src="images/gallery-3.jpg"
+          alt="H2H project"
+        >
+
+      </div>
+
+
+      <div
+        class="gallery-item reveal"
+        data-gallery="gallery"
+      >
+
+        <img
+          src="images/gallery-4.jpg"
+          alt="H2H project"
+        >
+
+      </div>
+
+
+      <div
+        class="gallery-item reveal"
+        data-gallery="gallery"
+      >
+
+        <img
+          src="images/gallery-5.jpg"
+          alt="H2H project"
+        >
+
+      </div>
+
+
+      <div
+        class="gallery-item reveal"
+        data-gallery="gallery"
+      >
+
+        <img
+          src="images/gallery-6.jpg"
+          alt="H2H project"
+        >
+
+      </div>
+
+
+      <div
+        class="gallery-item reveal"
+        data-gallery="gallery"
+      >
+
+        <img
+          src="images/gallery-7.jpg"
+          alt="H2H project"
+        >
+
+      </div>
+
+
+      <div
+        class="gallery-item reveal"
+        data-gallery="gallery"
+      >
+
+        <img
+          src="images/gallery-8.jpg"
+          alt="H2H project"
+        >
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     TEAM
+========================================================= -->
+
+
+
+
+<!-- =========================================================
+     COVERAGE
+========================================================= -->
+
+<section
+  class="coverage"
+  id="coverage"
+>
+
+  <div class="container coverage-layout">
+
+    <div class="coverage-heading reveal">
+
+      <span class="section-label">
+        Service Coverage
+      </span>
+
+
+      <h2>
+        Wherever your operation is.
+      </h2>
+
+
+      <p>
+        Reach out to our local contacts for your region.
+      </p>
+
+    </div>
+
+
+    <div class="coverage-list">
+
+
+      <div class="coverage-row reveal">
+
+        <div>
+
+          <h3>
+            Luzon Areas
+          </h3>
+
+        </div>
+
+
+        <div>
+
+          <p>
+
+            <strong>
+              <a href="tel:0927227601">
+                0927 227 601
+              </a>
+            </strong>
+
+            <br>
+
+            Monisa
+
+          </p>
+
+
+          <p style="margin-top:8px;">
+
+            Contact for Luzon inquiries.
+
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="coverage-row reveal">
+
+        <div>
+
+          <h3>
+            Davao & Mindanao
+          </h3>
+
+        </div>
+
+
+        <div>
+
+          <p>
+
+            <strong>
+              <a href="tel:09664621574">
+                0966 462 1574
+              </a>
+            </strong>
+
+            <br>
+
+            Marifil
+
+          </p>
+
+
+          <p style="margin-top:8px;">
+
+            Contact for Davao / Mindanao inquiries.
+
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     CTA
+========================================================= -->
+
+<section class="cta">
+
+  <div class="cta-bg">
+
+    <img
+      src="images/cta-bg.png"
+      alt="Environmental background"
+    >
+
+  </div>
+
+
+  <div class="cta-overlay"></div>
+
+
+  <div class="container">
+
+    <div class="cta-content reveal">
+
+      <span class="section-label">
+        Start a Conversation
+      </span>
+
+
+      <h2>
+        Need professional environmental consulting support?
+      </h2>
+
+
+      <p>
+
+        Get in touch with H2H Environmental Consulting Services
+        and let us know how we can assist you.
+
+      </p>
+
+
+      <a
+        href="#contact"
+        class="btn btn-primary"
+      >
+
+        Contact Us Today
+
+        <i class="fas fa-arrow-right"></i>
+
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     CONTACT
+========================================================= -->
+
+<section
+  class="contact"
+  id="contact"
+>
+
+  <div class="container">
+
+    <div class="contact-heading reveal">
+
+      <span class="section-label">
+        Contact
+      </span>
+
+
+      <h2>
+
+        Let's work toward
+        better environmental compliance.
+
+      </h2>
+
+
+      <p>
+
+        Reach out to H2H Environmental Management and Consultancy
+        Services through any of our available contact channels.
+
+      </p>
+
+    </div>
+
+
+    <div class="contact-grid">
+
+
+      <div class="contact-details">
+
+
+        <!-- LUZON -->
+
+        <div class="contact-item reveal">
+
+          <i class="fas fa-phone"></i>
+
+          <div>
+
+            <h4>
+              Luzon Areas
+            </h4>
+
+
+            <p>
+
+              <a href="tel:0927227601">
+                0927 227 601
+              </a>
+
+              — Monisa
+
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <!-- MINDANAO -->
+
+        <div class="contact-item reveal">
+
+          <i class="fas fa-phone"></i>
+
+          <div>
+
+            <h4>
+              Davao & Mindanao
+            </h4>
+
+
+            <p>
+
+              <a href="tel:09664621574">
+                0966 462 1574
+              </a>
+
+              — Marifil
+
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <!-- EMAIL -->
+
+        <div class="contact-item reveal">
+
+          <i class="fas fa-envelope"></i>
+
+          <div>
+
+            <h4>
+              Email
+            </h4>
+
+
+            <p>
+
+              <a
+                href="mailto:h2henvironservices@outlook.com"
+              >
+                h2henvironservices@outlook.com
+              </a>
+
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <!-- ADDRESS -->
+
+        <div class="contact-item reveal">
+
+          <i class="fas fa-location-dot"></i>
+
+          <div>
+
+            <h4>
+              Office Address
+            </h4>
+
+
+            <p>
+
+              B7 L7 Princess Melinda, Dexterville Royale Subd.
+              Brgy. San Nicolas II, Dasmariñas City, Cavite
+
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <!-- FACEBOOK -->
+
+        <div class="contact-item reveal">
+
+          <i class="fab fa-facebook-f"></i>
+
+          <div>
+
+            <h4>
+              Facebook
+            </h4>
+
+
+            <p>
+
+              <a
+                href="https://www.facebook.com/emceenvironmentalteam"
+                target="_blank"
+              >
+                Visit our Facebook Page
+              </a>
+
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <!-- MESSENGER -->
+
+        <div class="contact-item reveal">
+
+          <i class="fab fa-facebook-messenger"></i>
+
+          <div>
+
+            <h4>
+              Messenger
+            </h4>
+
+
+            <p>
+
+              <a
+                href="https://m.me/emceenvironmentalteam"
+                target="_blank"
+              >
+                Message us on Messenger
+              </a>
+
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <!-- VIBER -->
+
+        <div class="contact-item reveal">
+
+          <i class="fab fa-viber"></i>
+
+          <div>
+
+            <h4>
+              Viber
+            </h4>
+
+
+            <p>
+
+              <a
+                href="viber://chat?number=%2B63927227601"
+              >
+                Contact us on Viber
+              </a>
+
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- MAP -->
+
+      <div class="contact-map">
+
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4616.6671173065315!2d120.97519417576146!3d14.281096684818243!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397d5a966cedbf3%3A0x1f1f87a3399f1ec6!2sMANNA%20SHAMEYN%20ENTERPRISES%20INC!5e1!3m2!1sen!2sph!4v1795606308596!5m2!1sen!2sph" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+  <div class="container footer-main">
+
+
+    <div class="footer-brand">
+
+      <img
+        src="images/logo.png"
+        alt="H2H Environmental"
+      >
+
+
+      <p>
+
+        Professional environmental consulting and support
+        for a sustainable future.
+
+      </p>
+
+
+      <div class="footer-social">
+
+
+        <!-- FACEBOOK -->
+
+        <a
+          href="https://www.facebook.com/emceenvironmentalteam"
+          target="_blank"
+          aria-label="Facebook"
+        >
+
+          <i class="fab fa-facebook-f"></i>
+
+        </a>
+
+
+        <!-- MESSENGER -->
+
+        <a
+          href="https://m.me/emceenvironmentalteam"
+          target="_blank"
+          aria-label="Messenger"
+        >
+
+          <i class="fab fa-facebook-messenger"></i>
+
+        </a>
+
+
+        <!-- VIBER -->
+
+        <a
+          href="viber://chat?number=%2B63927227601"
+          aria-label="Viber"
+          class="viber"
+        >
+
+          <i class="fab fa-viber"></i>
+
+        </a>
+
+
+        <!-- PHONE -->
+
+        <a
+          href="tel:0927227601"
+          aria-label="Phone"
+        >
+
+          <i class="fas fa-phone"></i>
+
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <!-- QUICK LINKS -->
+
+    <div>
+
+      <div class="footer-title">
+        Quick Links
+      </div>
+
+
+      <ul class="footer-links">
+
+        <li>
+          <a href="#hero">
+            Home
+          </a>
+        </li>
+
+        <li>
+          <a href="#about">
+            About Us
+          </a>
+        </li>
+
+        <li>
+          <a href="#services">
+            Services
+          </a>
+        </li>
+
+        <li>
+          <a href="#team">
+            Our Team
+          </a>
+        </li>
+
+        <li>
+          <a href="#contact">
+            Contact
+          </a>
+        </li>
+
+      </ul>
+
+    </div>
+
+
+    <!-- CONTACT -->
+
+    <div class="footer-contact">
+
+      <div class="footer-title">
+        Contact
+      </div>
+
+
+      <p>
+
+        <i class="fas fa-phone"></i>
+
+        Luzon:
+        <a href="tel:0927227601">
+          0927 227 601
+        </a>
+
+      </p>
+
+
+      <p>
+
+        <i class="fas fa-phone"></i>
+
+        Davao/Mindanao:
+        <a href="tel:09664621574">
+          0966 462 1574
+        </a>
+
+      </p>
+
+
+      <p>
+
+        <i class="fas fa-envelope"></i>
+
+        <a href="mailto:h2henvironservices@outlook.com">
+          h2henvironservices@outlook.com
+        </a>
+
+      </p>
+
+
+      <p>
+
+        <i class="fas fa-location-dot"></i>
+
+        Dasmariñas, Cavite
+
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <div class="footer-bottom">
+
+    <div class="container footer-bottom-inner">
+
+      <span>
+
+        © 2026 H2H Environmental Consulting Services.
+        All Rights Reserved.
+
+      </span>
+
+
+      <span>
+
+        Environmental Management & Consultancy
+
+      </span>
+
+    </div>
+
+  </div>
+
+</footer>
+
+
+
+<!-- =========================================================
+     FLOATING CONTACT BUTTONS
+========================================================= -->
+
+<div class="floating">
+
+
+  <!-- MESSENGER -->
+
+  <a
+    href="https://m.me/emceenvironmentalteam"
+    target="_blank"
+    class="messenger"
+    aria-label="Messenger"
+  >
+
+    <i class="fab fa-facebook-messenger"></i>
+
+  </a>
+
+
+  <!-- FACEBOOK -->
+
+  <a
+    href="https://www.facebook.com/emceenvironmentalteam"
+    target="_blank"
+    class="facebook"
+    aria-label="Facebook"
+  >
+
+    <i class="fab fa-facebook-f"></i>
+
+  </a>
+
+
+  <!-- VIBER -->
+
+  <a
+    href="viber://chat?number=%2B63927227601"
+    class="viber"
+    aria-label="Viber"
+  >
+
+    <i class="fab fa-viber"></i>
+
+  </a>
+
+
+  <!-- CALL -->
+
+  <a
+    href="tel:0927227601"
+    aria-label="Call H2H"
+  >
+
+    <i class="fas fa-phone"></i>
+
+  </a>
+
+</div>
+
+
+
+<!-- =========================================================
+     SCROLL TOP
+========================================================= -->
+
+<button
+  class="scroll-top"
+  id="scrollTop"
+  aria-label="Back to top"
+>
+
+  <i class="fas fa-arrow-up"></i>
+
+</button>
+
+
+
+<!-- =========================================================
+     LIGHTBOX
+========================================================= -->
+
+<div
+  class="lightbox"
+  id="lightbox"
+>
+
+  <button
+    class="lightbox-close"
+    id="lightboxClose"
+    aria-label="Close"
+  >
+    &times;
+  </button>
+
+
+  <button
+    class="lightbox-prev"
+    id="lightboxPrev"
+    aria-label="Previous"
+  >
+
+    <i class="fas fa-chevron-left"></i>
+
+  </button>
+
+
+  <img
+    class="lightbox-image"
+    id="lightboxImage"
+    src=""
+    alt="Gallery preview"
+  >
+
+
+  <button
+    class="lightbox-next"
+    id="lightboxNext"
+    aria-label="Next"
+  >
+
+    <i class="fas fa-chevron-right"></i>
+
+  </button>
+
+
+  <div
+    class="lightbox-counter"
+    id="lightboxCounter">
+  </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script>
+
+document.addEventListener(
+  "DOMContentLoaded",
+  function () {
+
+    "use strict";
+
+
+    /* =========================================================
+       HEADER SCROLL
+    ========================================================= */
+
+    const header =
+      document.getElementById("header");
+
+    function updateHeader() {
+
+      if (window.scrollY > 30) {
+
+        header.classList.add("scrolled");
+
+      } else {
+
+        header.classList.remove("scrolled");
+
       }
 
-    })();
-  </script>
+    }
+
+    window.addEventListener(
+      "scroll",
+      updateHeader,
+      {
+        passive: true
+      }
+    );
+
+    updateHeader();
+
+
+    /* =========================================================
+       MOBILE MENU
+    ========================================================= */
+
+    const menuToggle =
+      document.getElementById("menuToggle");
+
+    const navMain =
+      document.getElementById("navMain");
+
+
+    function closeMobileMenu() {
+
+      menuToggle.classList.remove(
+        "active"
+      );
+
+      navMain.classList.remove(
+        "mobile-open"
+      );
+
+      document.body.classList.remove(
+        "menu-open"
+      );
+
+      menuToggle.setAttribute(
+        "aria-expanded",
+        "false"
+      );
+
+    }
+
+
+    function openMobileMenu() {
+
+      menuToggle.classList.add(
+        "active"
+      );
+
+      navMain.classList.add(
+        "mobile-open"
+      );
+
+      document.body.classList.add(
+        "menu-open"
+      );
+
+      menuToggle.setAttribute(
+        "aria-expanded",
+        "true"
+      );
+
+    }
+
+
+    menuToggle.addEventListener(
+      "click",
+      function () {
+
+        if (
+          navMain.classList.contains(
+            "mobile-open"
+          )
+        ) {
+
+          closeMobileMenu();
+
+        } else {
+
+          openMobileMenu();
+
+        }
+
+      }
+    );
+
+
+    /* CLOSE WHEN NAV LINK IS CLICKED */
+
+    document
+      .querySelectorAll(
+        ".nav-links a"
+      )
+      .forEach(function (link) {
+
+        link.addEventListener(
+          "click",
+          function () {
+
+            closeMobileMenu();
+
+          }
+        );
+
+      });
+
+
+    /* CLOSE WHEN RESIZED TO DESKTOP */
+
+    window.addEventListener(
+      "resize",
+      function () {
+
+        if (
+          window.innerWidth > 850
+        ) {
+
+          closeMobileMenu();
+
+        }
+
+      }
+    );
+
+
+    /* ESCAPE KEY */
+
+    document.addEventListener(
+      "keydown",
+      function (event) {
+
+        if (
+          event.key === "Escape"
+        ) {
+
+          closeMobileMenu();
+
+        }
+
+      }
+    );
+
+
+    /* =========================================================
+       ACTIVE NAVIGATION
+    ========================================================= */
+
+    const sections =
+      document.querySelectorAll(
+        "section[id]"
+      );
+
+    const navLinks =
+      document.querySelectorAll(
+        ".nav-links a"
+      );
+
+
+    function updateActiveNav() {
+
+      let current = "hero";
+
+
+      sections.forEach(
+        function (section) {
+
+          const sectionTop =
+            section.offsetTop - 170;
+
+          if (
+            window.scrollY >=
+            sectionTop
+          ) {
+
+            current =
+              section.id;
+
+          }
+
+        }
+      );
+
+
+      navLinks.forEach(
+        function (link) {
+
+          link.classList.remove(
+            "active"
+          );
+
+          const href =
+            link.getAttribute(
+              "href"
+            );
+
+          if (
+            href ===
+            "#" + current
+          ) {
+
+            link.classList.add(
+              "active"
+            );
+
+          }
+
+        }
+      );
+
+    }
+
+
+    window.addEventListener(
+      "scroll",
+      updateActiveNav,
+      {
+        passive: true
+      }
+    );
+
+    updateActiveNav();
+
+
+    /* =========================================================
+       REVEAL ANIMATION
+    ========================================================= */
+
+    const revealElements =
+      document.querySelectorAll(
+        ".reveal"
+      );
+
+
+    const revealObserver =
+      new IntersectionObserver(
+
+        function (entries) {
+
+          entries.forEach(
+            function (entry) {
+
+              if (
+                entry.isIntersecting
+              ) {
+
+                entry.target.classList.add(
+                  "visible"
+                );
+
+                revealObserver.unobserve(
+                  entry.target
+                );
+
+              }
+
+            }
+          );
+
+        },
+
+        {
+          threshold: .08,
+
+          rootMargin:
+            "0px 0px -50px 0px"
+        }
+
+      );
+
+
+    revealElements.forEach(
+      function (element) {
+
+        revealObserver.observe(
+          element
+        );
+
+      }
+    );
+
+
+    /* =========================================================
+       SCROLL TOP
+    ========================================================= */
+
+    const scrollTop =
+      document.getElementById(
+        "scrollTop"
+      );
+
+
+    window.addEventListener(
+      "scroll",
+      function () {
+
+        if (
+          window.scrollY > 600
+        ) {
+
+          scrollTop.classList.add(
+            "show"
+          );
+
+        } else {
+
+          scrollTop.classList.remove(
+            "show"
+          );
+
+        }
+
+      },
+      {
+        passive: true
+      }
+    );
+
+
+    scrollTop.addEventListener(
+      "click",
+      function () {
+
+        window.scrollTo({
+
+          top: 0,
+
+          behavior: "smooth"
+
+        });
+
+      }
+    );
+
+
+    /* =========================================================
+       LIGHTBOX
+    ========================================================= */
+
+    const galleryItems =
+      document.querySelectorAll(
+        ".gallery-item"
+      );
+
+    const lightbox =
+      document.getElementById(
+        "lightbox"
+      );
+
+    const lightboxImage =
+      document.getElementById(
+        "lightboxImage"
+      );
+
+    const lightboxClose =
+      document.getElementById(
+        "lightboxClose"
+      );
+
+    const lightboxPrev =
+      document.getElementById(
+        "lightboxPrev"
+      );
+
+    const lightboxNext =
+      document.getElementById(
+        "lightboxNext"
+      );
+
+    const lightboxCounter =
+      document.getElementById(
+        "lightboxCounter"
+      );
+
+
+    let galleryImages = [];
+
+    let currentIndex = 0;
+
+
+    galleryItems.forEach(
+      function (item) {
+
+        const image =
+          item.querySelector(
+            "img"
+          );
+
+        if (image) {
+
+          galleryImages.push(
+            image.src
+          );
+
+        }
+
+      }
+    );
+
+
+    function showLightbox(index) {
+
+      if (
+        !galleryImages.length
+      ) {
+
+        return;
+
+      }
+
+      currentIndex =
+        index;
+
+      lightboxImage.src =
+        galleryImages[
+          currentIndex
+        ];
+
+      lightboxCounter.textContent =
+        (currentIndex + 1)
+        +
+        " / "
+        +
+        galleryImages.length;
+
+      lightbox.classList.add(
+        "active"
+      );
+
+      document.body.style.overflow =
+        "hidden";
+
+    }
+
+
+    function closeLightbox() {
+
+      lightbox.classList.remove(
+        "active"
+      );
+
+      document.body.style.overflow =
+        "";
+
+    }
+
+
+    function showPrevious() {
+
+      currentIndex =
+        (
+          currentIndex -
+          1 +
+          galleryImages.length
+        )
+        %
+        galleryImages.length;
+
+      lightboxImage.src =
+        galleryImages[
+          currentIndex
+        ];
+
+      lightboxCounter.textContent =
+        (currentIndex + 1)
+        +
+        " / "
+        +
+        galleryImages.length;
+
+    }
+
+
+    function showNext() {
+
+      currentIndex =
+        (
+          currentIndex +
+          1
+        )
+        %
+        galleryImages.length;
+
+      lightboxImage.src =
+        galleryImages[
+          currentIndex
+        ];
+
+      lightboxCounter.textContent =
+        (currentIndex + 1)
+        +
+        " / "
+        +
+        galleryImages.length;
+
+    }
+
+
+    galleryItems.forEach(
+      function (item, index) {
+
+        item.addEventListener(
+          "click",
+          function () {
+
+            showLightbox(
+              index
+            );
+
+          }
+        );
+
+      }
+    );
+
+
+    lightboxClose.addEventListener(
+      "click",
+      closeLightbox
+    );
+
+
+    lightboxPrev.addEventListener(
+      "click",
+      function (event) {
+
+        event.stopPropagation();
+
+        showPrevious();
+
+      }
+    );
+
+
+    lightboxNext.addEventListener(
+      "click",
+      function (event) {
+
+        event.stopPropagation();
+
+        showNext();
+
+      }
+    );
+
+
+    lightbox.addEventListener(
+      "click",
+      function (event) {
+
+        if (
+          event.target ===
+          lightbox
+        ) {
+
+          closeLightbox();
+
+        }
+
+      }
+    );
+
+
+    document.addEventListener(
+      "keydown",
+      function (event) {
+
+        if (
+          !lightbox.classList.contains(
+            "active"
+          )
+        ) {
+
+          return;
+
+        }
+
+
+        if (
+          event.key === "Escape"
+        ) {
+
+          closeLightbox();
+
+        }
+
+
+        if (
+          event.key === "ArrowLeft"
+        ) {
+
+          showPrevious();
+
+        }
+
+
+        if (
+          event.key === "ArrowRight"
+        ) {
+
+          showNext();
+
+        }
+
+      }
+    );
+
+
+    /* =========================================================
+       SMOOTH ANCHOR SCROLL
+    ========================================================= */
+
+    document
+      .querySelectorAll(
+        'a[href^="#"]'
+      )
+      .forEach(
+        function (link) {
+
+          link.addEventListener(
+            "click",
+            function (event) {
+
+              const targetId =
+                this.getAttribute(
+                  "href"
+                );
+
+
+              if (
+                targetId === "#"
+              ) {
+
+                return;
+
+              }
+
+
+              const target =
+                document.querySelector(
+                  targetId
+                );
+
+
+              if (!target) {
+
+                return;
+
+              }
+
+
+              event.preventDefault();
+
+
+              const navbar =
+                document.querySelector(
+                  ".navbar"
+                );
+
+
+              const headerHeight =
+                navbar
+                  ? navbar.offsetHeight
+                  : 0;
+
+
+              const targetPosition =
+                target.getBoundingClientRect().top
+                +
+                window.pageYOffset
+                -
+                headerHeight;
+
+
+              window.scrollTo({
+
+                top:
+                  targetPosition,
+
+                behavior:
+                  "smooth"
+
+              });
+
+            }
+          );
+
+        }
+      );
+
+  }
+
+);
+
+</script>
+
 </body>
 </html>
